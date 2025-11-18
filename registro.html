@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="es">
 <head>
@@ -13,12 +12,30 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;color:var(--fg);background:var(--bg);line-height:1.35}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      color:var(--fg);
+      background:var(--bg);
+      line-height:1.35;
+    }
 
     .container{max-width:880px;margin:auto;padding:24px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 20px rgba(0,0,0,.05);overflow:hidden}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:0 10px 20px rgba(0,0,0,.05);
+      overflow:hidden;
+    }
 
-    header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;gap:16px;align-items:center}
+    header{
+      padding:20px 24px;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
     header img{width:56px;height:56px;object-fit:contain}
     header h1{font-size:1.25rem;margin:0}
     header p{margin:4px 0 0;color:var(--muted);font-size:.95rem}
@@ -34,29 +51,84 @@
     .hint{color:var(--muted);font-size:.9rem;margin:6px 0 0}
 
     input[type=text],input[type=tel],input[type=email],input[type=date],select{
-      width:100%;padding:12px 12px;border:1px solid var(--border);border-radius:12px;background:#fff;font-size:1rem
+      width:100%;
+      padding:12px 12px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:#fff;
+      font-size:1rem;
     }
     input:focus,select:focus{outline:2px solid var(--focus);outline-offset:2px}
 
-    .segmented{display:flex;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .segmented{
+      display:flex;
+      border:1px solid var(--border);
+      border-radius:12px;
+      overflow:hidden;
+    }
     .segmented input{display:none}
-    .segmented label{flex:1;padding:10px 12px;text-align:center;cursor:pointer;background:#fff;user-select:none}
-    .segmented input:checked + label{background:var(--accent);color:#fff}
+    .segmented label{
+      flex:1;
+      padding:10px 12px;
+      text-align:center;
+      cursor:pointer;
+      background:#fff;
+      user-select:none;
+    }
+    .segmented input:checked + label{
+      background:var(--accent);
+      color:#fff;
+    }
 
-    .consents{background:#fafafa;border:1px solid var(--border);border-radius:12px;padding:12px}
+    .consents{
+      background:#fafafa;
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:12px;
+    }
     .consents label{font-weight:500}
 
-    .error{color:var(--danger);font-size:.95rem;display:none;margin:10px 0}
-    .success{color:var(--ok);font-size:.95rem;display:none;margin:10px 0}
+    .error{
+      color:var(--danger);
+      font-size:.95rem;
+      display:none;
+      margin:10px 0;
+    }
+    .success{
+      color:var(--ok);
+      font-size:.95rem;
+      display:none;
+      margin:10px 0;
+    }
 
-    .actions{display:flex;gap:12px;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}
-    button{appearance:none;border:none;border-radius:12px;padding:12px 16px;font-weight:700;cursor:pointer}
+    .actions{
+      display:flex;
+      gap:12px;
+      justify-content:flex-end;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+    button{
+      appearance:none;
+      border:none;
+      border-radius:12px;
+      padding:12px 16px;
+      font-weight:700;
+      cursor:pointer;
+    }
     .primary{background:var(--accent);color:#fff}
     .secondary{background:#fff;color:var(--fg);border:1px solid var(--border)}
     .primary:focus,.secondary:focus{outline:2px solid var(--focus);outline-offset:2px}
 
-    footer{padding:16px 24px;border-top:1px solid var(--border);color:var(--muted);font-size:.9rem;background:#fff}
-    a{color:inherit} a:hover{text-decoration:none}
+    footer{
+      padding:16px 24px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:.9rem;
+      background:#fff;
+    }
+    a{color:inherit}
+    a:hover{text-decoration:none}
 
     .is-sending{opacity:.6;pointer-events:none}
   </style>
@@ -65,7 +137,7 @@
   <div class="container">
     <div class="card" role="region" aria-labelledby="titulo">
       <header>
-        <!-- ✔ RUTA DEL LOGO CORREGIDA -->
+        <!-- 🔁 Ruta de logo corregida para tu nueva web -->
         <img src="assets/img/logo_gnomon.png" alt="Logo GNOMON" />
         <div>
           <h1 id="titulo">Solicitud de cita — Recepción de equipo</h1>
@@ -73,7 +145,244 @@
         </div>
       </header>
 
-      <!-- EL RESTO DEL CÓDIGO ES IGUAL → (NO LO REPITO) -->
-      <!-- 🟢 TODA LA LOGÍSTICA FIREBASE Y GENERAR CÓDIGO OS FUNCIONA PERFECTO -->
+      <form id="form-cita" novalidate>
+        <!-- 1. Datos del cliente -->
+        <fieldset>
+          <legend>1) Datos del cliente</legend>
+          <div class="grid" role="group" aria-label="Tipo de cliente">
+            <div>
+              <label>Tipo de cliente</label>
+              <div class="segmented" role="tablist" aria-label="Tipo de cliente">
+                <input type="radio" id="cli_persona" name="tipo_cliente" value="Persona" checked>
+                <label for="cli_persona" role="tab" aria-selected="true">Persona</label>
+                <input type="radio" id="cli_empresa" name="tipo_cliente" value="Empresa">
+                <label for="cli_empresa" role="tab" aria-selected="false">Empresa</label>
+              </div>
+            </div>
+            <div>
+              <label for="identificacion">Cédula o NIT</label>
+              <input id="identificacion" name="identificacion" type="text" inputmode="numeric" autocomplete="off" required placeholder="Ej. 123456789-1" />
+            </div>
+            <div>
+              <label for="nombre_razon">Nombre completo o Razón social</label>
+              <input id="nombre_razon" name="nombre_razon" type="text" required placeholder="Ej. Sergio Espinosa / Topografía Andina SAS" />
+            </div>
+            <div>
+              <label for="telefono">Teléfono o WhatsApp</label>
+              <input id="telefono" name="telefono" type="tel" required placeholder="Ej. +57 315 299 9158" />
+            </div>
+            <div>
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email" required placeholder="Ej. contacto@gnomon.com" />
+            </div>
+          </div>
+        </fieldset>
 
-      <!-- COPIA AQUI TODO LO DEMÁS SIN CAMBIOS -->
+        <!-- 2. Datos del equipo -->
+        <fieldset>
+          <legend>2) Datos del equipo</legend>
+          <div class="grid">
+            <div>
+              <label for="tipo_equipo">Tipo de equipo</label>
+              <select id="tipo_equipo" name="tipo_equipo" required>
+                <option value="">Selecciona…</option>
+                <option>Estación Total</option>
+                <option>Nivel automático</option>
+                <option>Receptor GNSS</option>
+                <option>Teodolito</option>
+                <option>Distanciómetro</option>
+                <option>Accesorio</option>
+              </select>
+            </div>
+            <div>
+              <label for="marca">Marca</label>
+              <input id="marca" name="marca" type="text" required placeholder="Ej. Leica, Topcon, Sokkia" />
+            </div>
+            <div>
+              <label for="modelo">Modelo (opcional)</label>
+              <input id="modelo" name="modelo" type="text" placeholder="Ej. TS06, B40A, GRX3" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 3. Modalidad y fecha programada -->
+        <fieldset>
+          <legend>3) Modalidad y fecha</legend>
+          <div class="grid">
+            <div>
+              <label>Modalidad</label>
+              <div class="segmented">
+                <input type="radio" id="mod_pres" name="modalidad" value="Presencial" checked>
+                <label for="mod_pres">Presencial</label>
+                <input type="radio" id="mod_env" name="modalidad" value="Envio">
+                <label for="mod_env">Envío</label>
+              </div>
+            </div>
+            <div>
+              <label id="lbl_fecha" for="fecha_programada">Fecha en que traerá el equipo</label>
+              <input id="fecha_programada" name="fecha_programada" type="date" required min="">
+              <p class="hint" id="hint_fecha">Si eliges envío, será la fecha estimada de despacho.</p>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 4. Consentimientos -->
+        <fieldset>
+          <legend>4) Autorizaciones</legend>
+          <div class="consents">
+            <div style="margin-bottom:10px">
+              <input id="c_priv" name="acepta_politica" type="checkbox" required>
+              <label for="c_priv">He leído y acepto la <a href="#" target="_blank" rel="noopener">Política de Tratamiento de Datos Personales</a>.</label>
+            </div>
+            <div>
+              <input id="c_msg" name="acepta_mensajeria" type="checkbox" required>
+              <label for="c_msg">Autorizo recibir recordatorios por WhatsApp/SMS y correo electrónico relacionados con mi solicitud.</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Mensajes -->
+        <p class="error" id="err_general" role="alert">Por favor completa los campos obligatorios y acepta las autorizaciones.</p>
+        <p class="success" id="ok_general" role="status">Guardando…</p>
+
+        <!-- Acciones -->
+        <div class="actions">
+          <button type="reset" class="secondary">Limpiar</button>
+          <button id="btn-enviar" type="submit" class="primary">Enviar solicitud</button>
+        </div>
+      </form>
+
+      <footer>
+        <p>
+          Al enviar este formulario, aceptas que GNOMON Topografía trate tus datos con la finalidad de gestionar la cita de recepción.
+          Podrás ejercer tus derechos de acceso, rectificación y supresión conforme a la Política de Datos.
+        </p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- 🔥 Firebase SDKs y script de guardado -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getFirestore, addDoc, collection, serverTimestamp, doc, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCJFrY3gZKtSeQihyiKsRoFrnQmQxbeZ9w",
+      authDomain: "gnomonlaboratorio.firebaseapp.com",
+      projectId: "gnomonlaboratorio",
+      storageBucket: "gnomonlaboratorio.firebasestorage.app",
+      messagingSenderId: "412422773771",
+      appId: "1:412422773771:web:bc534ea42b520281557b0e",
+      measurementId: "G-XXNYH8NH01"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+    signInAnonymously(auth);
+
+    const form = document.getElementById('form-cita');
+    const err = document.getElementById('err_general');
+    const ok = document.getElementById('ok_general');
+    const btn = document.getElementById('btn-enviar');
+    const fecha = document.getElementById('fecha_programada');
+    const modPres = document.getElementById('mod_pres');
+    const modEnv  = document.getElementById('mod_env');
+    const lblFecha = document.getElementById('lbl_fecha');
+
+    // Fecha mínima = hoy
+    const hoy = new Date(); hoy.setHours(0,0,0,0);
+    fecha.setAttribute('min', hoy.toISOString().split('T')[0]);
+
+    function updateFechaLabel(){
+      lblFecha.textContent = modEnv.checked ? 'Fecha estimada de envío' : 'Fecha en que traerá el equipo';
+    }
+    modPres.addEventListener('change', updateFechaLabel);
+    modEnv.addEventListener('change', updateFechaLabel);
+    updateFechaLabel();
+
+    // 🔢 Generador de código OS global continuo
+    async function generarCodigoOS() {
+      const counterRef = doc(db, 'counters', 'os_global');
+      const seq = await runTransaction(db, async (tx) => {
+        const snap = await tx.get(counterRef);
+        let next = 1;
+        if (!snap.exists()) tx.set(counterRef, { seq: 1, updatedAt: serverTimestamp() });
+        else {
+          next = (snap.data().seq || 0) + 1;
+          tx.update(counterRef, { seq: next, updatedAt: serverTimestamp() });
+        }
+        return next;
+      });
+
+      const consecutivo = String(seq).padStart(4, '0');
+      const d = new Date();
+      return `OS-GNO-${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}-${consecutivo}`;
+    }
+
+    // 💾 Guardado
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      err.style.display = 'none'; ok.style.display = 'none';
+      form.classList.add('is-sending'); btn.disabled = true;
+
+      const c1 = document.getElementById('c_priv');
+      const c2 = document.getElementById('c_msg');
+      const required = ['identificacion','nombre_razon','telefono','email','tipo_equipo','marca','fecha_programada'];
+      for(const id of required){
+        const el = document.getElementById(id);
+        if(!el || !el.value){
+          err.style.display='block';
+          form.classList.remove('is-sending');
+          btn.disabled=false;
+          return;
+        }
+      }
+      if(!c1.checked || !c2.checked){
+        err.style.display='block';
+        form.classList.remove('is-sending');
+        btn.disabled=false;
+        return;
+      }
+
+      const data = {
+        tipo_cliente: document.querySelector('input[name="tipo_cliente"]:checked')?.value || 'Persona',
+        identificacion: document.getElementById('identificacion').value.trim(),
+        nombre_razon: document.getElementById('nombre_razon').value.trim(),
+        telefono: document.getElementById('telefono').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        tipo_equipo: document.getElementById('tipo_equipo').value,
+        marca: document.getElementById('marca').value.trim(),
+        modelo: document.getElementById('modelo').value.trim(),
+        modalidad: document.querySelector('input[name="modalidad"]:checked')?.value || 'Presencial',
+        fecha_programada: document.getElementById('fecha_programada').value,
+        acepta_politica: c1.checked,
+        acepta_mensajeria: c2.checked,
+        creado_en: serverTimestamp(),
+        estado: "solicitud_recibida"
+      };
+
+      try {
+        const codigo_os = await generarCodigoOS();
+        const colRef = collection(db, 'equipos_gnomon');
+        await addDoc(colRef, { ...data, codigo_os });
+
+        const params = new URLSearchParams({
+          nombre: data.nombre_razon,
+          modalidad: data.modalidad,
+          fecha: data.fecha_programada
+        });
+        window.location.href = `./gracias.html?${params.toString()}`;
+      } catch (e2) {
+        console.error(e2);
+        err.textContent = 'Error al guardar la solicitud.';
+        err.style.display = 'block';
+      } finally {
+        form.classList.remove('is-sending');
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
