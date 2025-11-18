@@ -1,1 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GNOMON Topografía — Registro exitoso</title>
+  <style>
+    :root{
+      --bg:#f5f2e8; --fg:#1f2937; --muted:#6b7280; --accent:#111827; --ok:#065f46; --border:#e5e7eb; --card:#ffffff; --focus:#2563eb;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;color:var(--fg)}
+    .container{max-width:760px;margin:40px auto;padding:24px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 20px rgba(0,0,0,.05);padding:28px}
+    header{display:flex;gap:16px;align-items:center;margin-bottom:12px}
+    header img{width:64px;height:64px;object-fit:contain}
+    h1{margin:0;font-size:1.4rem}
+    p{margin:.4rem 0}
+    .success{display:flex;align-items:center;gap:10px;color:var(--ok);font-weight:700;margin:12px 0;font-size:1.05rem}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    a.btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--fg);text-decoration:none;font-weight:700}
+    a.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+    a.btn:focus{outline:2px solid var(--focus);outline-offset:2px}
+    small{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+
+      <header>
+        <img src="assets/img/logo_gnomon.png" alt="Logo GNOMON" />
+        <div>
+          <h1>¡Registro exitoso!</h1>
+          <p id="saludo">Gracias por tu solicitud.</p>
+        </div>
+      </header>
+
+      <p id="recordatorio"></p>
+
+      <div class="success">✓ Tu solicitud quedó registrada correctamente en nuestro sistema.</div>
+
+      <div class="actions">
+        <a id="btnWhats" class="btn primary" target="_blank" rel="noopener">Enviar información por WhatsApp</a>
+        <a href="registro.html" class="btn">Hacer otra solicitud</a>
+      </div>
+
+      <small>Si tienes dudas, escríbenos por WhatsApp. Estamos atentos para ayudarte.</small>
+    </div>
+  </div>
+
+  <script>
+    const q = new URLSearchParams(location.search);
+    const nombre = q.get('nombre') || 'Cliente';
+    const modalidad = (q.get('modalidad') || 'Presencial').toLowerCase();
+    const fecha = q.get('fecha') || '';
+
+    document.getElementById('saludo').textContent = `Gracias, ${nombre}.`;
+
+    const rec = document.getElementById('recordatorio');
+
+    if (modalidad === 'envio') {
+      rec.textContent =
+        'Perfecto. Cuando envíes tu equipo, por favor compártenos la guía de transporte a nuestra línea de WhatsApp para hacer el seguimiento adecuado.';
+    } else {
+      rec.textContent = fecha
+        ? `Te esperamos con tu equipo el día ${fecha}, según la fecha programada.`
+        : 'Te esperamos con tu equipo en la fecha programada.';
+    }
+
+    const numero = '573152999158';
+    const mensaje = encodeURIComponent(
+      `Hola GNOMON, comparto la información relacionada con mi solicitud de recepción.\n\nNombre: ${nombre}\nModalidad: ${modalidad}\nFecha programada: ${fecha || 'N/A'}`
+    );
+
+    document.getElementById('btnWhats').href =
+      `https://wa.me/${numero}?text=${mensaje}`;
+  </script>
+</body>
+</html>
 
