@@ -17,7 +17,7 @@
       --gn-bg-alt: #ffffff;
       --gn-text: #1a1a1a;
       --gn-muted: #666666;
-      --gn-primary: #c79c3c;   /* Dorado GNOMON aprox */
+      --gn-primary: #c79c3c;
       --gn-primary-dark: #8f6e24;
       --gn-border: #e0dccf;
       --gn-shadow: 0 10px 30px rgba(0,0,0,0.06);
@@ -27,13 +27,11 @@
       --gn-max-width: 980px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Montserrat', system-ui, sans-serif;
       background-color: var(--gn-bg);
       color: var(--gn-text);
       line-height: 1.6;
@@ -58,23 +56,14 @@
       gap: 16px;
     }
 
-    .logo-block {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
+    .logo-block { display: flex; flex-direction: column; gap: 2px; }
     .logo-title {
       font-size: 1.1rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-
-    .logo-subtitle {
-      font-size: 0.78rem;
-      opacity: 0.8;
-    }
+    .logo-subtitle { font-size: 0.78rem; opacity: 0.8; }
 
     .header-link {
       font-size: 0.8rem;
@@ -82,11 +71,7 @@
       text-decoration: none;
       opacity: 0.9;
     }
-
-    .header-link:hover {
-      opacity: 1;
-      text-decoration: underline;
-    }
+    .header-link:hover { opacity: 1; text-decoration: underline; }
 
     main {
       max-width: var(--gn-max-width);
@@ -145,19 +130,6 @@
       gap: 12px;
     }
 
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .meta-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 999px;
-      background-color: var(--gn-primary);
-    }
-
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -192,32 +164,6 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
-    .btn-secondary {
-      padding: 9px 18px;
-      border-radius: var(--gn-radius-pill);
-      border: 1px solid rgba(0,0,0,0.08);
-      background-color: rgba(255,255,255,0.7);
-      color: var(--gn-text);
-      font-size: 0.86rem;
-      font-weight: 500;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      transition: background-color 0.1s ease;
-      white-space: nowrap;
-    }
-
-    .btn-secondary:hover {
-      background-color: rgba(255,255,255,1);
-    }
-
-    .btn-icon {
-      font-size: 1.1rem;
-      line-height: 1;
-    }
-
     .content-layout {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 1.5fr);
@@ -231,11 +177,7 @@
       }
     }
 
-    .content-main {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .content-main { display: flex; flex-direction: column; gap: 16px; }
 
     section {
       background-color: var(--gn-bg-alt);
@@ -243,10 +185,6 @@
       padding: 16px 16px 18px 16px;
       box-shadow: var(--gn-shadow);
       border: 1px solid var(--gn-border);
-    }
-
-    section + section {
-      margin-top: 4px;
     }
 
     h2 {
@@ -263,40 +201,9 @@
       font-weight: 600;
     }
 
-    p {
-      margin: 4px 0 8px 0;
-      font-size: 0.88rem;
-    }
-
-    ul, ol {
-      margin: 4px 0 8px 18px;
-      padding-left: 0;
-      font-size: 0.86rem;
-    }
-
-    li {
-      margin-bottom: 4px;
-    }
-
-    .muted {
-      color: var(--gn-muted);
-      font-size: 0.82rem;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .tag {
-      font-size: 0.72rem;
-      padding: 3px 8px;
-      border-radius: var(--gn-radius-pill);
-      background-color: rgba(0,0,0,0.035);
-      border: 1px solid rgba(0,0,0,0.04);
-    }
+    p { margin: 4px 0 8px 0; font-size: 0.88rem; }
+    ul, ol { margin: 4px 0 8px 18px; padding-left: 0; font-size: 0.86rem; }
+    li { margin-bottom: 4px; }
 
     table {
       width: 100%;
@@ -317,48 +224,6 @@
       font-size: 0.8rem;
     }
 
-    code {
-      font-family: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.8rem;
-      background-color: rgba(0,0,0,0.04);
-      padding: 1px 4px;
-      border-radius: 4px;
-    }
-
-    .content-aside {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .aside-card {
-      background-color: #111111;
-      color: #f5f5f5;
-      padding: 14px 14px 16px 14px;
-      border-radius: var(--gn-radius-md);
-      box-shadow: var(--gn-shadow);
-    }
-
-    .aside-card h3 {
-      margin-top: 0;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .aside-card p,
-    .aside-card li,
-    .aside-card span {
-      font-size: 0.8rem;
-    }
-
-    .aside-card a {
-      color: #f5f5f5;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-    }
-
     footer {
       max-width: var(--gn-max-width);
       margin: 0 auto;
@@ -370,397 +235,228 @@
       gap: 10px;
       flex-wrap: wrap;
     }
+
+    /* ================================
+       ESTILOS PARA IMPRESIÓN / PDF
+       ================================ */
+    @media print {
+
+      header,
+      .hero-actions,
+      footer,
+      .aside-card {
+        display: none !important;
+      }
+
+      body {
+        background: #ffffff !important;
+      }
+
+      main, .content-layout, .content-main {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+      }
+
+      section, table, th, td {
+        box-shadow: none !important;
+        border-color: #000 !important;
+      }
+
+      body, p, li, td, th {
+        font-size: 12pt !important;
+      }
+
+      section { page-break-inside: avoid; }
+      h1, h2, h3 { page-break-after: avoid; }
+    }
+
   </style>
 </head>
+
 <body>
 
 <header>
   <div class="header-inner">
     <div class="logo-block">
       <span class="logo-title">GNOMON TOPOGRAFÍA</span>
-      <span class="logo-subtitle">Laboratorio &amp; Herramientas Digitales</span>
+      <span class="logo-subtitle">Laboratorio & Herramientas Digitales</span>
     </div>
-    <a class="header-link" href="https://gnomontopografia.com" target="_blank" rel="noopener noreferrer">
-      gnomontopografia.com
-    </a>
+    <a class="header-link" href="https://gnomontopografia.com" target="_blank">gnomontopografia.com</a>
   </div>
 </header>
 
 <main>
-  <!-- HERO / PORTADA -->
-  <section class="hero-card" aria-labelledby="hero-title">
+
+  <!-- HERO -->
+  <section class="hero-card">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      <span>Manual de Usuario &mdash; Nivelación</span>
+      <span>Manual de Usuario — Nivelación</span>
     </div>
-    <div>
-      <h1 id="hero-title" class="hero-title">Módulos de Nivelación GNOMON</h1>
-      <p class="hero-subtitle">
-        Definiciones, simbología y flujo de trabajo estándar para todos los programas de nivelación
-        de GNOMON Topografía.
-      </p>
-    </div>
+
+    <h1 class="hero-title">Módulos de Nivelación GNOMON</h1>
+    <p class="hero-subtitle">
+      Definiciones, simbología y flujo de trabajo estándar para todos los programas de nivelación.
+    </p>
+
     <div class="hero-meta">
-      <span><span class="meta-dot"></span>Versión 1.0</span>
-      <span><span class="meta-dot"></span>Última actualización: 2025</span>
-      <span><span class="meta-dot"></span>Aplicación interna y móvil</span>
+      <span>Versión 1.0</span>
+      <span>Última actualización: 2025</span>
+      <span>Aplicación interna y móvil</span>
     </div>
+
     <div class="hero-actions">
-      <!-- 🔽 BOTÓN DE DESCARGA PDF -->
-      <a
-        class="btn-primary"
-        href="/docs/manual-nivelacion-gnomon-v1.pdf"
-        download
-      >
+      <button class="btn-primary" onclick="window.print()">
         <span class="btn-icon">⬇</span>
         <span>Descargar manual en PDF</span>
-      </a>
-
-      <!-- Enlace de vista rápida al PDF (opcional) -->
-      <a
-        class="btn-secondary"
-        href="/docs/manual-nivelacion-gnomon-v1.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span class="btn-icon">📄</span>
-        <span>Ver versión PDF</span>
-      </a>
+      </button>
     </div>
   </section>
 
   <div class="content-layout">
-    <!-- CONTENIDO PRINCIPAL -->
+
     <div class="content-main">
-      <!-- 1. Introducción -->
-      <section id="introduccion">
+
+      <!-- INTRODUCCIÓN -->
+      <section>
         <h2>1. Introducción</h2>
         <p>
-          Los módulos de nivelación de GNOMON están diseñados para facilitar los procesos
-          altimétricos utilizados en la topografía profesional, tanto en campo como en oficina.
-          Este manual describe la terminología, simbología y flujo de trabajo comunes a todos
-          los programas de nivelación incorporados en el ecosistema GNOMON.
-        </p>
-        <p class="muted">
-          La información aquí descrita aplica a la aplicación móvil, al aplicativo interno
-          de laboratorio y a las futuras integraciones web relacionadas con nivelación.
+          Los módulos de nivelación de GNOMON están diseñados para facilitar trabajos altimétricos
+          en obra civil, topografía predial, levantamientos y laboratorio.
         </p>
       </section>
 
-      <!-- 2. Alcance -->
-      <section id="alcance">
-        <h2>2. Alcance del manual</h2>
-        <p>
-          Este manual reúne la base conceptual y operativa de los módulos de nivelación
-          de GNOMON, y aplica de manera general a:
-        </p>
+      <!-- ALCANCE -->
+      <section>
+        <h2>2. Alcance</h2>
+        <p>Este manual aplica a:</p>
         <ul>
-          <li>Nivelación general.</li>
-          <li>Replanteo de niveles.</li>
-          <li>Cálculo de pendientes.</li>
-          <li>Altura remota.</li>
-          <li>Ajuste de nivelación.</li>
-          <li>Herramientas complementarias altimétricas.</li>
+          <li>Nivelación general</li>
+          <li>Replanteo de niveles</li>
+          <li>Cálculo de pendientes</li>
+          <li>Altura remota</li>
+          <li>Ajuste de nivelación</li>
         </ul>
-        <p>
-          Los detalles específicos de cada módulo (campos adicionales, botones particulares
-          o lógicas avanzadas) se documentarán en manuales individuales por programa.
-        </p>
       </section>
 
-      <!-- 3. Conceptos fundamentales -->
-      <section id="conceptos">
-        <h2>3. Conceptos fundamentales de nivelación</h2>
-
-        <h3>3.1 Banco de nivel (BM)</h3>
-        <p>
-          Punto con cota conocida, estable y bien materializada, que sirve como referencia
-          inicial y/o final de una nivelación. A partir del BM se calculan las cotas de los
-          restantes puntos del levantamiento.
-        </p>
-
-        <h3>3.2 Cota (H)</h3>
-        <p>
-          Valor altimétrico absoluto de un punto respecto a un plano de referencia
-          (datum). En GNOMON se maneja en unidades de metros con decimales.
-        </p>
-
-        <h3>3.3 Lecturas en la mira</h3>
-        <ul>
-          <li><strong>Atrás (A):</strong> lectura tomada sobre un punto con cota conocida (por ejemplo, el BM) para obtener la cota instrumental.</li>
-          <li><strong>Adelante (D):</strong> lectura sobre el punto cuya cota se desea determinar.</li>
-          <li><strong>Intermedia (I):</strong> lectura realizada sin cambiar la ubicación del instrumento, sobre puntos auxiliares intermedios.</li>
-        </ul>
-
-        <h3>3.4 Cota instrumental (CI)</h3>
-        <p>
-          Altura de la línea de visión del instrumento respecto al punto de referencia
-          en el que se tomó la lectura atrás.
-        </p>
-        <p><strong>Fórmula:</strong> <code>CI = H + A</code></p>
-
-        <h3>3.5 Cota de punto (Hₚ)</h3>
-        <p>
-          Cota obtenida para un punto nuevo a partir de la cota instrumental
-          y la lectura adelante correspondiente.
-        </p>
-        <p><strong>Fórmula:</strong> <code>Hₚ = CI − D</code></p>
-
-        <h3>3.6 Diferencia de nivel (ΔH)</h3>
-        <p>
-          Cambio altimétrico entre dos puntos consecutivos.
-        </p>
-        <p><strong>Fórmula:</strong> <code>ΔH = A − D</code></p>
+      <!-- CONCEPTOS -->
+      <section>
+        <h2>3. Conceptos fundamentales</h2>
+        <p><strong>BM:</strong> Banco de nivel</p>
+        <p><strong>H:</strong> Cota</p>
+        <p><strong>A:</strong> Lectura atrás</p>
+        <p><strong>D:</strong> Lectura adelante</p>
+        <p><strong>I:</strong> Lectura intermedia</p>
+        <p><strong>CI:</strong> Cota instrumental</p>
+        <p><strong>Hₚ:</strong> Cota del punto</p>
       </section>
 
-      <!-- 4. Abreviaturas -->
-      <section id="abreviaturas">
-        <h2>4. Abreviaturas y símbolos oficiales GNOMON</h2>
-        <p>
-          Para garantizar coherencia entre todos los módulos, GNOMON adopta de forma
-          oficial las siguientes abreviaturas:
-        </p>
-
+      <!-- ABREVIATURAS -->
+      <section>
+        <h2>4. Abreviaturas</h2>
         <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Símbolo</th>
-              <th>Uso principal</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Nombre</th><th>Símbolo</th></tr></thead>
           <tbody>
-            <tr>
-              <td>Banco de nivel</td>
-              <td>BM</td>
-              <td>Punto inicial y/o final de referencia altimétrica.</td>
-            </tr>
-            <tr>
-              <td>Cota</td>
-              <td>H</td>
-              <td>Valor altimétrico absoluto de un punto.</td>
-            </tr>
-            <tr>
-              <td>Lectura atrás</td>
-              <td>A</td>
-              <td>Lectura sobre punto conocido para obtener CI.</td>
-            </tr>
-            <tr>
-              <td>Lectura adelante</td>
-              <td>D</td>
-              <td>Lectura sobre punto cuya cota se desea calcular.</td>
-            </tr>
-            <tr>
-              <td>Lectura intermedia</td>
-              <td>I</td>
-              <td>Lectura sobre puntos adicionales sin mover el instrumento.</td>
-            </tr>
-            <tr>
-              <td>Cota instrumental</td>
-              <td>CI</td>
-              <td>Altura de la línea de visión del instrumento.</td>
-            </tr>
-            <tr>
-              <td>Cota de punto</td>
-              <td>Hₚ</td>
-              <td>Cota calculada del punto de interés.</td>
-            </tr>
-            <tr>
-              <td>Diferencia de nivel</td>
-              <td>ΔH</td>
-              <td>Variación altimétrica entre puntos consecutivos.</td>
-            </tr>
-            <tr>
-              <td>Error de cierre</td>
-              <td>EC</td>
-              <td>Diferencia entre cota calculada y cota de referencia al cerrar ciclo.</td>
-            </tr>
-            <tr>
-              <td>Ajuste</td>
-              <td>Adj</td>
-              <td>Corrección distribuida para compensar el error de cierre.</td>
-            </tr>
+            <tr><td>Banco de nivel</td><td>BM</td></tr>
+            <tr><td>Lectura atrás</td><td>A</td></tr>
+            <tr><td>Lectura adelante</td><td>D</td></tr>
+            <tr><td>Lectura intermedia</td><td>I</td></tr>
+            <tr><td>Cota instrumental</td><td>CI</td></tr>
+            <tr><td>Cota del punto</td><td>Hₚ</td></tr>
+            <tr><td>Diferencia de nivel</td><td>ΔH</td></tr>
+            <tr><td>Error de cierre</td><td>EC</td></tr>
           </tbody>
         </table>
-
-        <p class="muted">
-          Estas abreviaturas deben respetarse en todos los campos, etiquetas y reportes
-          generados por los programas de nivelación GNOMON.
-        </p>
       </section>
 
-      <!-- 5. Estructura general -->
-      <section id="estructura">
-        <h2>5. Estructura general de los programas de nivelación</h2>
-        <p>
-          Aunque cada módulo posee particularidades propias, la mayoría comparte
-          una estructura común basada en:
-        </p>
-
-        <h3>5.1 Entrada de datos</h3>
+      <!-- ESTRUCTURA -->
+      <section>
+        <h2>5. Estructura</h2>
+        <p>Los programas de nivelación GNOMON realizan:</p>
         <ul>
-          <li>Definición de BM inicial (cota H₀).</li>
-          <li>Registro de lecturas A, D e I según la metodología aplicada.</li>
-          <li>Opcionalmente, ingreso de distancias o identificadores de punto.</li>
-        </ul>
-
-        <h3>5.2 Cálculos automáticos</h3>
-        <ul>
-          <li>Cálculo de CI a partir de H y A.</li>
-          <li>Cálculo de Hₚ a partir de CI y D.</li>
-          <li>Cálculo de ΔH entre puntos, si aplica.</li>
-          <li>Cálculo de EC y ajuste distribuido en nivelaciones cerradas.</li>
-        </ul>
-
-        <h3>5.3 Salida de resultados</h3>
-        <ul>
-          <li>Tabla estructurada de puntos, lecturas y cotas.</li>
-          <li>Indicadores básicos de calidad y consistencia.</li>
-          <li>Mensajes de advertencia en caso de posibles errores de digitación.</li>
+          <li>Cálculo de CI = H + A</li>
+          <li>Cálculo de Hₚ = CI – D</li>
+          <li>ΔH = A – D</li>
+          <li>Cálculo de EC y ajustes</li>
         </ul>
       </section>
 
-      <!-- 6. Flujo de trabajo -->
-      <section id="flujo">
-        <h2>6. Flujo de trabajo estándar</h2>
-        <p>
-          A nivel general, el flujo recomendado de trabajo en los módulos de nivelación es:
-        </p>
+      <!-- FLUJO DE TRABAJO -->
+      <section>
+        <h2>6. Flujo de trabajo</h2>
         <ol>
-          <li>Ingresar la cota del BM inicial (<code>H₀</code>).</li>
-          <li>Registrar la lectura atrás (<code>A</code>) sobre el BM.</li>
-          <li>Permitir que GNOMON calcule automáticamente la cota instrumental (<code>CI</code>).</li>
-          <li>Registrar la(s) lectura(s) adelante (<code>D</code>) y/o intermedias (<code>I</code>).</li>
-          <li>Dejar que el sistema calcule las cotas de los puntos (<code>Hₚ</code>).</li>
-          <li>Repetir el proceso en cada estación o cambio de instrumento.</li>
-          <li>En caso de nivelación cerrada, comparar la cota final con la de referencia y obtener
-              el error de cierre (<code>EC</code>).</li>
-          <li>Aplicar ajuste, cuando proceda, según el criterio seleccionado.</li>
+          <li>Ingresar BM</li>
+          <li>Registrar A</li>
+          <li>Calcular CI</li>
+          <li>Registrar D</li>
+          <li>Calcular Hₚ</li>
         </ol>
-        <p class="muted">
-          Los diagramas de flujo específicos por programa podrán visualizarse en los
-          manuales individuales de cada módulo.
-        </p>
       </section>
 
-      <!-- 7. Ejemplo práctico -->
-      <section id="ejemplo">
-        <h2>7. Ejemplo práctico básico</h2>
-        <p>Ejemplo de nivelación simple a partir de un BM conocido.</p>
+      <!-- EJEMPLO -->
+      <section>
+        <h2>7. Ejemplo práctico</h2>
 
         <table>
-          <thead>
-            <tr>
-              <th>Punto</th>
-              <th>A</th>
-              <th>D</th>
-              <th>H (conocida)</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Punto</th><th>A</th><th>D</th><th>H</th></tr></thead>
           <tbody>
-            <tr>
-              <td>BM1</td>
-              <td>1.422</td>
-              <td>—</td>
-              <td>100.000</td>
-            </tr>
-            <tr>
-              <td>P1</td>
-              <td>—</td>
-              <td>1.256</td>
-              <td>—</td>
-            </tr>
+            <tr><td>BM1</td><td>1.422</td><td>—</td><td>100.000</td></tr>
+            <tr><td>P1</td><td>—</td><td>1.256</td><td>—</td></tr>
           </tbody>
         </table>
 
-        <h3>7.1 Cálculos</h3>
-        <ul>
-          <li><strong>Cota instrumental:</strong> <code>CI = 100.000 + 1.422 = 101.422</code></li>
-          <li><strong>Cota del punto P1:</strong> <code>Hₚ = 101.422 − 1.256 = 100.166</code></li>
-        </ul>
-
-        <p>
-          GNOMON mostrará estos resultados en una tabla organizada, junto con
-          el identificador del punto y cualquier mensaje de observación relevante.
-        </p>
+        <p><strong>CI = 100.000 + 1.422 = 101.422</strong></p>
+        <p><strong>Hₚ = 101.422 − 1.256 = 100.166</strong></p>
       </section>
 
-      <!-- 8. Errores y recomendaciones -->
-      <section id="errores">
-        <h2>8. Errores comunes y recomendaciones GNOMON</h2>
-        <p>Al utilizar cualquier programa de nivelación, se recomienda:</p>
+      <!-- ERRORES -->
+      <section>
+        <h2>8. Errores comunes</h2>
         <ul>
-          <li>Verificar que la cota inicial del BM esté correctamente digitada.</li>
-          <li>Confirmar que las lecturas A, D e I correspondan al punto adecuado.</li>
-          <li>Evitar confundir lecturas atrás con lecturas adelante.</li>
-          <li>Revisar que las unidades sean coherentes (metros, con el mismo número de decimales).</li>
-          <li>Realizar cierres de control cuando sea posible, para detectar errores sistemáticos.</li>
+          <li>Invertir A y D</li>
+          <li>Ingresar cotas incorrectas</li>
+          <li>No equilibrar distancias</li>
         </ul>
-        <p class="muted">
-          Si el sistema detecta inconsistencias numéricas significativas, podrá mostrar
-          mensajes de advertencia para revisar los datos capturados.
-        </p>
       </section>
 
-      <!-- 9. Glosario -->
-      <section id="glosario">
-        <h2>9. Glosario técnico GNOMON</h2>
-        <ul>
-          <li><strong>BM:</strong> Banco de nivel.</li>
-          <li><strong>H:</strong> Cota de un punto.</li>
-          <li><strong>A:</strong> Lectura atrás.</li>
-          <li><strong>D:</strong> Lectura adelante.</li>
-          <li><strong>I:</strong> Lectura intermedia.</li>
-          <li><strong>CI:</strong> Cota instrumental.</li>
-          <li><strong>Hₚ:</strong> Cota del punto.</li>
-          <li><strong>ΔH:</strong> Diferencia de nivel.</li>
-          <li><strong>EC:</strong> Error de cierre.</li>
-          <li><strong>Adj:</strong> Ajuste de nivelación.</li>
-        </ul>
+      <!-- GLOSARIO -->
+      <section>
+        <h2>9. Glosario</h2>
+        <p><strong>BM:</strong> Banco de nivel</p>
+        <p><strong>A:</strong> Lectura atrás</p>
+        <p><strong>D:</strong> Lectura adelante</p>
+        <p><strong>I:</strong> Intermedia</p>
+        <p><strong>CI:</strong> Cota instrumental</p>
+        <p><strong>EC:</strong> Error de cierre</p>
       </section>
+
     </div>
 
-    <!-- ASIDE / INFO LATERAL -->
-    <aside class="content-aside" aria-label="Información adicional">
+    <!-- ASIDE -->
+    <aside class="content-aside">
       <div class="aside-card">
         <h3>Referencia técnica</h3>
-        <p>Los criterios de este manual se basan en:</p>
         <ul>
-          <li>ISO 17123-2 (niveles automáticos).</li>
-          <li>Manual de topografía IGAC.</li>
-          <li>Lineamientos INVIAS &amp; SENA.</li>
+          <li>ISO 17123-2</li>
+          <li>IGAC – Manual de Topografía</li>
+          <li>SENA – Nivelación</li>
         </ul>
-        <p class="muted">
-          Esta síntesis se adapta al flujo de trabajo interno de GNOMON,
-          manteniendo compatibilidad con las prácticas estándar de la industria.
-        </p>
-      </div>
-
-      <div class="aside-card">
-        <h3>Uso interno y externo</h3>
-        <p>
-          Este documento puede compartirse con personal interno del laboratorio,
-          estudiantes, contratistas y clientes que participen en proyectos de
-          nivelación gestionados por GNOMON.
-        </p>
-        <p>
-          Sitio oficial:<br>
-          <a href="https://gnomontopografia.com" target="_blank" rel="noopener noreferrer">
-            gnomontopografia.com
-          </a>
-        </p>
       </div>
     </aside>
+
   </div>
+
 </main>
 
 <footer>
-  <span>© <span id="year"></span> GNOMON Topografía. Todos los derechos reservados.</span>
-  <span>Manual de Usuario &mdash; Módulos de Nivelación v1.0</span>
+  <span>© <span id="year"></span> GNOMON Topografía</span>
+  <span>Manual de Usuario — Nivelación v1.0</span>
 </footer>
 
 <script>
-  // Año dinámico en el footer
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
