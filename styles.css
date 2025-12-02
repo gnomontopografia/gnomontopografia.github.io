@@ -322,3 +322,87 @@ body {
     margin-top: 40px;
   }
 }
+/* ===========================
+   CONTACTO — DISEÑO GNOMON
+   =========================== */
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.contacto-info h3 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.contacto-desc {
+  margin-bottom: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.lista-contacto {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-contacto li {
+  margin-bottom: 12px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  box-shadow: var(--shadow-soft);
+}
+
+.lista-contacto li .icon {
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.lista-contacto a {
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lista-contacto a:hover {
+  text-decoration: underline;
+  color: var(--accent);
+}
+
+.contacto-img img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+}
+
+/* Adaptación responsive */
+@media (max-width: 780px) {
+  .contacto-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .lista-contacto li {
+    justify-content: center;
+  }
+
+  .contacto-img img {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
+
+
