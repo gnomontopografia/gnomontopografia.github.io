@@ -323,6 +323,99 @@ body {
   }
 }
 /* ===========================
+   CONTACTO — MINIMALISTA PRO
+   =========================== */
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  padding: 10px 0;
+}
+
+/* Titulo */
+.contacto-info h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+/* Descripción */
+.contacto-desc {
+  margin-bottom: 16px;
+  color: var(--muted);
+  line-height: 1.45;
+  font-size: 14px;
+  max-width: 500px;
+}
+
+/* Lista de contacto */
+.lista-contacto {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lista-contacto li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  background: #ffffffc8;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  transition: 0.15s;
+}
+
+.lista-contacto li:hover {
+  box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+}
+
+.icon {
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+.lista-contacto a {
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.lista-contacto a:hover {
+  color: var(--accent);
+}
+
+/* Imagen */
+.contacto-img img {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 12px 22px rgba(0,0,0,0.06);
+}
+
+/* Responsive */
+@media (max-width: 780px) {
+  .contacto-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .lista-contacto li {
+    justify-content: center;
+  }
+  
+  .contacto-img img {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+/* ===========================
    CONTACTO FONDO CORPORATIVO
    =========================== */
 
@@ -364,4 +457,3 @@ body {
   background: rgba(255,255,255,0.75);
   border: 1px solid var(--border-soft);
 }
-
