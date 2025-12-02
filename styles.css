@@ -323,82 +323,45 @@ body {
   }
 }
 /* ===========================
-   CONTACTO — ELEGANTE / PRO
+   CONTACTO FONDO CORPORATIVO
    =========================== */
 
-.contacto-grid {
-  display: grid;
-  grid-template-columns: 1fr 0.9fr;
-  gap: 24px;
-  align-items: center;
+.section-contacto-fondo {
+  position: relative;
+  padding: 60px 0;
 }
 
-.contacto-info h3 {
+/* Fondo con la imagen */
+.section-contacto-fondo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/img/contacto_banner.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;             /* ← Nivel de transparencia */
+  z-index: 1;
+}
+
+/* Contenido encima del fondo */
+.section-contacto-fondo .contacto-contenido {
+  position: relative;
+  z-index: 2;
+  background: rgba(245,242,232,0.75);  /* beige con transparencia */
+  padding: 24px;
+  max-width: 650px;
+  margin: auto;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.section-contacto-fondo h3 {
   margin-top: 0;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--fg);
+  font-size: 22px;
 }
 
-.contacto-desc {
-  margin-bottom: 12px;
-  color: var(--muted);
-  line-height: 1.5;
-  font-size: 14px;
-}
-
-/* Lista */
-.lista-contacto {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.lista-contacto li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
-  margin-bottom: 10px;
-  background: #ffffffd0;
+.section-contacto-fondo .lista-contacto li {
+  background: rgba(255,255,255,0.75);
   border: 1px solid var(--border-soft);
-  backdrop-filter: blur(3px);
-  border-radius: 12px;
-}
-
-.lista-contacto .icon {
-  font-size: 1.1rem;
-  color: var(--accent);
-}
-
-.lista-contacto a {
-  color: var(--fg);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.lista-contacto a:hover {
-  color: var(--accent);
-}
-
-/* Imagen */
-.contacto-img img {
-  width: 100%;
-  border-radius: 14px;
-  border: 1px solid var(--border-soft);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-}
-
-/* Responsive */
-@media (max-width: 780px) {
-  .contacto-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contacto-img img {
-    max-width: 330px;
-    margin: 0 auto;
-  }
 }
 
