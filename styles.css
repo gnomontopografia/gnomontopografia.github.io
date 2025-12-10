@@ -359,10 +359,11 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px;
+  padding: 6px 4px;
   margin-bottom: 10px;
-  background: rgba(255,255,255,0.25); /* muy suave */
-  border-radius: 10px;
+  background: transparent; /* ← SIN recuadro */
+  border: none;            /* ← Eliminamos borde */
+  border-radius: 0;        /* ← Sin caja */
   transition: 0.15s;
 }
 
@@ -451,4 +452,5 @@ body {
   background: rgba(255,255,255,0.75);
   border: 1px solid var(--border-soft);
 }
+
 
