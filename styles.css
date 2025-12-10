@@ -359,11 +359,10 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 12px;
+  padding: 10px;
   margin-bottom: 10px;
-  background: #ffffffc8;
-  border: 1px solid var(--border-soft);
-  border-radius: 12px;
+  background: rgba(255,255,255,0.25); /* muy suave */
+  border-radius: 10px;
   transition: 0.15s;
 }
 
@@ -452,3 +451,4 @@ body {
   background: rgba(255,255,255,0.75);
   border: 1px solid var(--border-soft);
 }
+
