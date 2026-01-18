@@ -23,16 +23,16 @@
         </div>
       </div>
 
-      <!-- Menú -->
+      <!-- Menú (MULTI-PÁGINA) -->
       <nav class="main-nav">
-        <a href="#inicio">Inicio</a>
-        <a href="#empresa">Empresa</a>
-        <a href="#laboratorio">Laboratorio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#productos">Productos</a>
-        <a href="#noticias">Noticias</a>
-        <a href="#perfil">Perfil</a>
-        <a href="#contacto">Contacto</a>
+        <a href="index.html">Inicio</a>
+        <a href="empresa.html">Empresa</a>
+        <a href="laboratorio.html">Laboratorio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="productos.html">Productos</a>
+        <a href="noticias.html">Noticias</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="contacto.html">Contacto</a>
       </nav>
 
     </div>
@@ -43,7 +43,7 @@
     <!-- =======================
          HERO PRINCIPAL
     ======================== -->
-    <section id="inicio" class="hero">
+    <section class="hero">
       <div class="hero-bg"></div>
 
       <div class="container hero-inner">
@@ -54,8 +54,8 @@
             para topografía e ingeniería.
           </p>
           <div class="hero-actions">
-            <a href="#laboratorio" class="btn btn-primary">Ver laboratorio</a>
-            <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
+            <a href="laboratorio.html" class="btn btn-primary">Ver laboratorio</a>
+            <a href="servicios.html" class="btn btn-secondary">Ver servicios</a>
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@
     <!-- =======================
          PRESENTACIÓN EMPRESA
     ======================== -->
-    <section id="empresa" class="presentacion">
+    <section class="presentacion">
       <div class="presentacion-bg"></div>
 
       <div class="container presentacion-content">
@@ -74,72 +74,81 @@
           calibración de equipos y desarrollo de productos digitales profesionales
           para ingenieros, constructores y topógrafos en Colombia.
         </p>
+
+        <div class="hero-actions">
+          <a href="empresa.html" class="btn btn-secondary">Conocer la empresa</a>
+        </div>
       </div>
     </section>
 
     <!-- =======================
-         LABORATORIO (placeholder)
+         RESUMEN LABORATORIO
     ======================== -->
-    <section id="laboratorio" class="section">
+    <section class="section">
       <div class="container">
         <h3>Laboratorio GNOMON</h3>
         <p>
-          Próximamente encontrarás toda la información detallada del laboratorio:
-          procedimientos, normas ISO 17123, trazabilidad, reportes técnicos y más.
+          Procedimientos, normas ISO 17123, trazabilidad, reportes técnicos y más.
         </p>
+        <div class="hero-actions">
+          <a href="laboratorio.html" class="btn btn-primary">Ir a Laboratorio</a>
+        </div>
       </div>
     </section>
 
     <!-- =======================
-         SERVICIOS (placeholder)
+         RESUMEN SERVICIOS
     ======================== -->
-    <section id="servicios" class="section section-alt">
+    <section class="section section-alt">
       <div class="container">
         <h3>Servicios Topográficos</h3>
         <p>
           Levantamientos planimétricos y altimétricos, diseños viales, replanteos,
           monitoreo GNSS y consultoría técnica.
         </p>
+        <div class="hero-actions">
+          <a href="servicios.html" class="btn btn-primary">Ir a Servicios</a>
+        </div>
       </div>
     </section>
 
     <!-- =======================
-         PRODUCTOS (placeholder)
+         RESUMEN PRODUCTOS
     ======================== -->
-    <section id="productos" class="section">
+    <section class="section">
       <div class="container">
         <h3>Productos Digitales</h3>
         <p>
           Plantillas de Civil 3D, rutinas LISP, cursos, informes y herramientas
           para topografía profesional.
         </p>
+        <div class="hero-actions">
+          <a href="productos.html" class="btn btn-primary">Ir a Productos</a>
+        </div>
       </div>
     </section>
 
     <!-- =======================
-         NOTICIAS
+         NOTICIAS (igual a tu estilo)
     ======================== -->
-    <section id="noticias" class="section section-noticias">
+    <section class="section section-noticias">
       <div class="container">
         <h3>Novedades GNOMON</h3>
 
         <div class="noticias-grid">
 
-          <!-- CARD 1 -->
           <div class="card-noticia">
             <img src="assets/img/noticia_laboratorio.png" alt="Noticia Laboratorio">
             <h4>Próximamente: Laboratorio GNOMON</h4>
             <p>Muy pronto abrimos nuestro laboratorio de calibración y verificación.</p>
           </div>
 
-          <!-- CARD 2 -->
           <div class="card-noticia">
             <img src="assets/img/noticia_curso.png" alt="Curso Civil 3D">
             <h4>Nuevo curso Civil 3D</h4>
             <p>Curso completo: “Civil 3D de Cero a Experto”.</p>
           </div>
 
-          <!-- CARD 3 -->
           <div class="card-noticia">
             <img src="assets/img/noticia_plantilla.png" alt="Plantilla Civil 3D">
             <h4>Nueva plantilla Civil 3D</h4>
@@ -147,80 +156,72 @@
           </div>
 
         </div>
+
+        <div class="hero-actions" style="margin-top:16px;">
+          <a href="noticias.html" class="btn btn-secondary">Ver todas las noticias</a>
+        </div>
       </div>
     </section>
 
     <!-- =======================
-         PERFIL
+         CONTACTO (VISIBLE EN HOME)
     ======================== -->
-    <section id="perfil" class="section">
-      <div class="container">
-        <h3>Perfil de Usuario</h3>
-        <p>
-          Aquí más adelante activaremos el registro, login y consulta de certificados.
-        </p>
+    <section class="section section-contacto-fondo">
+      <div class="container contacto-contenido">
+        <div class="contacto-info">
+          <h3>Contacto</h3>
+
+          <p class="contacto-desc">
+            Si tienes dudas, deseas agendar un servicio o quieres adquirir nuestros productos digitales,
+            puedes comunicarte directamente con nosotros a través de los siguientes canales:
+          </p>
+
+          <ul class="lista-contacto">
+            <li>
+              <span class="icon">📞</span>
+              <a href="https://wa.me/573152999158" target="_blank">
+                WhatsApp: <strong>+57 315 299 9158</strong>
+              </a>
+            </li>
+
+            <li>
+              <span class="icon">✉️</span>
+              <a href="mailto:gnomontopografia@gmail.com">
+                Email: <strong>gnomontopografia@gmail.com</strong>
+              </a>
+            </li>
+
+            <li>
+              <span class="icon">🎥</span>
+              <a href="https://youtube.com/@videosresumidosautocadcivi4890" target="_blank">
+                YouTube: <strong>@Gnomon Topografía</strong>
+              </a>
+            </li>
+
+            <li>
+              <span class="icon">📱</span>
+              <a href="https://www.tiktok.com/@gnomontopografia" target="_blank">
+                TikTok: <strong>@gnomontopografia</strong>
+              </a>
+            </li>
+
+            <li>
+              <span class="icon">📘</span>
+              <a href="https://www.facebook.com/profile.php?" target="_blank">
+                Facebook: <strong>Gnomon Topografía</strong>
+              </a>
+            </li>
+          </ul>
+
+          <div class="hero-actions" style="margin-top:16px;">
+            <a href="contacto.html" class="btn btn-secondary">Ver página de contacto</a>
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <!-- =======================
-         CONTACTO — FINAL
-    ======================== -->
-<!-- =======================
-     CONTACTO CORPORATIVO
-======================= -->
-<section id="contacto" class="section section-contacto-fondo">
-  <div class="container contacto-contenido">
+  </main>
 
-    <div class="contacto-info">
-      <h3>Contacto</h3>
-
-      <p class="contacto-desc">
-        Si tienes dudas, deseas agendar un servicio o quieres adquirir nuestros productos digitales,
-        puedes comunicarte directamente con nosotros a través de los siguientes canales:
-      </p>
-
-      <ul class="lista-contacto">
-
-        <li>
-          <span class="icon">📞</span>
-          <a href="https://wa.me/573152999158" target="_blank">
-            WhatsApp: <strong>+57 315 299 9158</strong>
-          </a>
-        </li>
-
-        <li>
-          <span class="icon">✉️</span>
-          <a href="mailto:gnomontopografia@gmail.com">
-            Email: <strong>gnomontopografia@gmail.com</strong>
-          </a>
-        </li>
-
-        <li>
-          <span class="icon">🎥</span>
-          <a href="https://youtube.com/@videosresumidosautocadcivi4890" target="_blank">
-            YouTube: <strong>@Gnomon Topografía</strong>
-          </a>
-        </li>
-
-        <li>
-          <span class="icon">📱</span>
-          <a href="https://www.tiktok.com/@gnomontopografia" target="_blank">
-            TikTok: <strong>@gnomontopografia</strong>
-          </a>
-        </li>
-
-        <li>
-          <span class="icon">📘</span>
-          <a href="https://www.facebook.com/profile.php?" target="_blank">
-            Facebook: <strong>Gnomon Topografía</strong>
-          </a>
-        </li>
-
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-
-
+</body>
+</html>
