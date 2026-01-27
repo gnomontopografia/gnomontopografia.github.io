@@ -459,5 +459,14 @@ body {
   object-fit: cover;
   object-position: top;  /* 🔑 ESTO ES LO IMPORTANTE */
 }
+/* ===== Ajuste imágenes sección Noticias ===== */
+.section-noticias .card-noticia img {
+  display: block;
+  margin: 0 auto 12px auto; /* centra horizontal y deja espacio abajo */
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 
 
