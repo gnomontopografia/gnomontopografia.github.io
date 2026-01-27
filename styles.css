@@ -452,5 +452,12 @@ body {
   background: rgba(255,255,255,0.75);
   border: 1px solid var(--border-soft);
 }
+/* Ajuste imágenes de productos */
+.card-noticia img {
+  width: 100%;
+  height: 200px;          /* ajusta si quieres más alto */
+  object-fit: cover;
+  object-position: top;  /* 🔑 ESTO ES LO IMPORTANTE */
+}
 
 
