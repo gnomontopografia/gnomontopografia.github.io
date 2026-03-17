@@ -157,14 +157,29 @@ color:#777;
 <header>
 <div class="header-inner">
 <div class="logo">GNOMON TOPOGRAFÍA</div>
+<div style="display:flex;align-items:center;gap:10px">
+
+<button id="menuBtn" style="
+background:none;
+border:none;
+color:white;
+font-size:1.2rem;
+cursor:pointer;
+display:none;
+">
+☰
+</button>
+
 <div>manual de usuario</div>
+
+</div>
 </div>
 </header>
 
 <main>
 
 <!-- MENU IZQUIERDO -->
-<aside>
+<aside id="sidebar">
 
 <h3>Manual GNOMON</h3>
 
@@ -262,10 +277,79 @@ aplicación y describir el uso de cada uno de sus módulos principales.
 
 
 <section id="abreviaturas">
+
 <h2>Abreviaturas</h2>
-<div class="placeholder">
-Tabla de abreviaturas usadas en GNOMON.
+
+<p>
+En los diferentes módulos de la aplicación GNOMON se emplean abreviaturas técnicas 
+propias de la nivelación topográfica. Estos términos permiten interpretar las 
+tablas de cálculo de manera rápida y estandarizada.
+</p>
+
+<div style="text-align:center;margin:25px 0">
+
+<img 
+src="assets/img/abreviatura.png"
+alt="Abreviaturas GNOMON"
+style="max-width:420px;width:100%;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.15)"
+>
+
+<p style="font-size:.8rem;color:#666;margin-top:6px">
+Resumen visual de las abreviaturas utilizadas en la aplicación.
+</p>
+
 </div>
+
+<h3>Abreviaturas generales</h3>
+
+<ul>
+
+<li><strong>PTO:</strong> Identificador numérico del punto dentro del proceso de cálculo.</li>
+
+<li><strong>V+:</strong> Lectura tomada sobre un punto con cota conocida para calcular la altura instrumental.</li>
+
+<li><strong>HI:</strong> Altura instrumental obtenida al sumar la cota del punto conocido con la vista más (V+).</li>
+
+<li><strong>VI:</strong> Lecturas realizadas a puntos intermedios desde la misma posición del instrumento.</li>
+
+<li><strong>V−:</strong> Lectura tomada hacia un punto de cambio o cierre antes de mover el instrumento.</li>
+
+<li><strong>Cota:</strong> Elevación calculada del punto.</li>
+
+<li><strong>Descripción:</strong> Identificación del punto (BM, eje, cambio, entre otros).</li>
+
+<li><strong>BM:</strong> Punto con cota conocida utilizado como referencia inicial.</li>
+
+<li><strong>Punto de cambio:</strong> Punto utilizado para trasladar la nivelación al cambiar el instrumento.</li>
+
+</ul>
+
+<h3>Replanteo de niveles</h3>
+
+<ul>
+
+<li><strong>VI ideal:</strong> Lectura necesaria para alcanzar la cota objetivo.</li>
+
+<li><strong>Δ (Delta):</strong> Diferencia entre la lectura real y la ideal, indica la corrección en campo.</li>
+
+<li><strong>Cota Obj:</strong> Cota objetivo que se desea replantear.</li>
+
+<li><strong>Cota (Lect.):</strong> Cota calculada con la lectura real.</li>
+
+</ul>
+
+<h3>Cálculo de pendientes</h3>
+
+<ul>
+
+<li><strong>Dist:</strong> Distancia entre puntos consecutivos.</li>
+
+<li><strong>Pendiente (%):</strong> Inclinación definida para el tramo.</li>
+
+<li><strong>Cota inicio:</strong> Cota base desde la cual inicia el cálculo de la pendiente.</li>
+
+</ul>
+
 </section>
 
 
@@ -345,7 +429,16 @@ Información de contacto y sitio web GNOMON.
 <script>
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
+<script>
 
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+
+menuBtn.addEventListener("click", () => {
+sidebar.classList.toggle("active");
+});
+
+</script>
 </body>
 </html>
 
