@@ -441,10 +441,64 @@ Este módulo funciona como punto de entrada a todos los procesos de cálculo, pe
 
 
 <section id="nivelacion">
+
 <h2>Nivelación general</h2>
-<div class="placeholder">
-Explicación del módulo de nivelación.
+
+<p>
+El módulo de nivelación general permite realizar cálculos altimétricos de forma secuencial a partir de un punto de referencia conocido. 
+A través de este proceso, la aplicación calcula automáticamente las cotas de los puntos levantados en campo.
+</p>
+
+<div style="text-align:center;margin:25px 0">
+
+<img 
+src="assets/img/nivelacion_general.jpeg"
+alt="Nivelación general GNOMON"
+style="max-width:420px;width:100%;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.15)"
+>
+
+<p style="font-size:.8rem;color:#666;margin-top:6px">
+Interfaz del módulo de nivelación general.
+</p>
+
 </div>
+
+<h3>Funcionamiento general</h3>
+
+<ul>
+
+<li><strong>Punto inicial:</strong> Se parte de un punto con cota conocida (BM o referencia).</li>
+
+<li><strong>Altura instrumental (HI):</strong> Se calcula automáticamente al ingresar la lectura inicial (V+).</li>
+
+<li><strong>Lecturas intermedias (VI):</strong> Permiten obtener las cotas de los puntos intermedios sin mover el instrumento.</li>
+
+<li><strong>Punto de cambio (V−):</strong> Se utiliza para trasladar la nivelación al cambiar la posición del equipo.</li>
+
+<li><strong>Continuidad del proceso:</strong> El sistema recalcula la nueva HI automáticamente al iniciar una nueva estación.</li>
+
+<li><strong>Cálculo de cotas:</strong> Cada lectura genera automáticamente la elevación correspondiente del punto.</li>
+
+</ul>
+
+<h3>Elementos de la interfaz</h3>
+
+<ul>
+
+<li><strong>Tabla de datos:</strong> Permite registrar y visualizar las lecturas y cotas calculadas.</li>
+
+<li><strong>Controles superiores:</strong> Incluyen opciones para ordenar, invertir, guardar, exportar y agregar nuevos registros.</li>
+
+<li><strong>Navegación lateral:</strong> Facilita el desplazamiento entre los puntos registrados.</li>
+
+<li><strong>Gráfica de perfil:</strong> Representa visualmente la variación de las cotas a lo largo del recorrido.</li>
+
+</ul>
+
+<p>
+Este módulo automatiza el flujo tradicional de nivelación, reduciendo errores de cálculo y permitiendo un registro claro y continuo de la información de campo.
+</p>
+
 </section>
 
 
