@@ -148,7 +148,30 @@ padding:12px 20px 30px;
 font-size:.75rem;
 color:#777;
 }
+/* MENU MOVIL */
 
+@media(max-width:900px){
+
+#menuBtn{
+display:block;
+}
+
+aside{
+position:fixed;
+left:-260px;
+top:0;
+height:100%;
+width:260px;
+z-index:1000;
+transition:0.3s;
+border-radius:0;
+}
+
+aside.active{
+left:0;
+}
+
+}
 </style>
 </head>
 
