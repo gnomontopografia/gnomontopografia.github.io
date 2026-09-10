@@ -40,7 +40,7 @@ if (btnComprarDynamo) {
         reference: pago.reference,
 
         // Llave pública de Wompi Sandbox
-        publicKey: "pub_test_CbEJ01nfapecGbSr0gwDQz5udor7OsTm",
+        publicKey: "pub_test_CbEJO1nfapecGbSr0gwDQz5udor7OsTm",
 
         signature: {
           integrity: pago.signature
