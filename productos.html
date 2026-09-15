@@ -63,6 +63,7 @@
         <h3>Categorías</h3>
 
         <div class="hero-actions">
+
           <a href="#cat-plantillas" class="btn btn-primary">
             Plantillas
           </a>
@@ -82,6 +83,7 @@
           <a href="#cat-apps" class="btn btn-secondary">
             Apps
           </a>
+
         </div>
 
       </div>
@@ -131,14 +133,14 @@
 
             <a
               href="contacto.html"
-              class="btn btn-primary"
+              class="btn btn-contacto"
             >
               Solicitar compra
             </a>
 
             <a
               href="#"
-              class="btn btn-secondary"
+              class="btn btn-detalle"
               onclick="alert('Detalles próximamente ✅'); return false;"
             >
               Ver detalles
@@ -176,7 +178,9 @@
             </iframe>
           </div>
 
-          <h4>Pack LISP Predial — GNOMON</h4>
+          <h4>
+            Pack LISP Predial — GNOMON
+          </h4>
 
           <p>
             Herramientas enfocadas en planos prediales:
@@ -192,14 +196,14 @@
 
             <a
               href="contacto.html"
-              class="btn btn-primary"
+              class="btn btn-contacto"
             >
               Solicitar compra
             </a>
 
             <a
               href="#"
-              class="btn btn-secondary"
+              class="btn btn-detalle"
               onclick="alert('Detalles próximamente ✅'); return false;"
             >
               Ver detalles
@@ -251,22 +255,24 @@
             <strong>Formato:</strong> Archivo PKT
           </p>
 
-          <p>
-            <strong>Precio:</strong> $20.000 COP
-          </p>
+          <!-- Precio destacado -->
+          <div class="precio-producto">
+            <span class="precio-label">Precio</span>
+            <span class="precio-valor">$20.000 COP</span>
+          </div>
 
           <div class="hero-actions">
 
             <a
               href="contacto.html"
-              class="btn btn-primary"
+              class="btn btn-contacto"
             >
               Solicitar compra
             </a>
 
             <button
               id="btn-comprar-dynamo"
-              class="btn btn-primary"
+              class="btn btn-compra"
               type="button"
             >
               Comprar ahora
@@ -274,7 +280,7 @@
 
             <a
               href="#"
-              class="btn btn-secondary"
+              class="btn btn-detalle"
               onclick="alert('Próximamente podrás comprar y descargar este producto de forma segura ✅'); return false;"
             >
               Ver detalles
@@ -305,112 +311,145 @@
       </div>
     </section>
 
-<!-- ===== Apps ===== -->
-<section id="cat-apps" class="section app-feature-section">
-  <div class="container">
+    <!-- ===== Apps ===== -->
+    <section id="cat-apps" class="section app-feature-section">
+      <div class="container">
 
-    <h3>Apps</h3>
+        <h3>Apps</h3>
 
-    <p>
-      Aplicaciones GNOMON desarrolladas para facilitar trabajos
-      de topografía, cálculos y procesos técnicos directamente
-      desde dispositivos móviles.
-    </p>
-
-    <div class="app-feature-card">
-
-      <!-- Encabezado de la app -->
-      <div class="app-feature-top">
-
-        <div class="app-icon-wrap">
-          <img
-            src="assets/img/apps/nivelacion_topografica/icono_app.png"
-            alt="Icono app Nivelación Topográfica GNOMON"
-            class="app-icon"
-          />
-        </div>
-
-        <div class="app-main-info">
-          <span class="app-badge">Disponible en Google Play</span>
-
-          <h4>Nivelación Topográfica GNOMON</h4>
-
-          <p class="app-dev">
-            Desarrollada por <strong>Gnomon Topografía</strong>
-          </p>
-
-          <div class="app-tags">
-            <span>Topografía</span>
-            <span>Nivelación</span>
-            <span>Cálculos</span>
-            <span>Exportación</span>
-            <span>Android</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Descripción -->
-      <div class="app-feature-body">
         <p>
-          Aplicación móvil pensada para apoyar trabajos de nivelación
-          topográfica en campo. Permite organizar lecturas, calcular
-          cotas, trabajar pendientes, gestionar archivos e importar
-          o exportar información de forma práctica.
+          Aplicaciones GNOMON desarrolladas para facilitar trabajos
+          de topografía, cálculos y procesos técnicos directamente
+          desde dispositivos móviles.
         </p>
 
-        <div class="app-highlights">
-          <div class="highlight-item">✅ Cálculo de nivelación topográfica</div>
-          <div class="highlight-item">✅ Replanteo de niveles en campo</div>
-          <div class="highlight-item">✅ Cálculo de pendientes</div>
-          <div class="highlight-item">✅ Importación y exportación de datos</div>
-          <div class="highlight-item">✅ Gestión de archivos de trabajo</div>
-          <div class="highlight-item">✅ Compartir resultados</div>
+        <div class="app-feature-card">
+
+          <!-- Encabezado de la app -->
+          <div class="app-feature-top">
+
+            <div class="app-icon-wrap">
+              <img
+                src="assets/img/apps/nivelacion_topografica/icono_app.png"
+                alt="Icono app Nivelación Topográfica GNOMON"
+                class="app-icon"
+              />
+            </div>
+
+            <div class="app-main-info">
+
+              <span class="app-badge">
+                Disponible en Google Play
+              </span>
+
+              <h4>
+                Nivelación Topográfica GNOMON
+              </h4>
+
+              <p class="app-dev">
+                Desarrollada por <strong>Gnomon Topografía</strong>
+              </p>
+
+              <div class="app-tags">
+                <span>Topografía</span>
+                <span>Nivelación</span>
+                <span>Cálculos</span>
+                <span>Exportación</span>
+                <span>Android</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Descripción -->
+          <div class="app-feature-body">
+
+            <p>
+              Aplicación móvil pensada para apoyar trabajos de nivelación
+              topográfica en campo. Permite organizar lecturas, calcular
+              cotas, trabajar pendientes, gestionar archivos e importar
+              o exportar información de forma práctica.
+            </p>
+
+            <div class="app-highlights">
+
+              <div class="highlight-item">
+                ✅ Cálculo de nivelación topográfica
+              </div>
+
+              <div class="highlight-item">
+                ✅ Replanteo de niveles en campo
+              </div>
+
+              <div class="highlight-item">
+                ✅ Cálculo de pendientes
+              </div>
+
+              <div class="highlight-item">
+                ✅ Importación y exportación de datos
+              </div>
+
+              <div class="highlight-item">
+                ✅ Gestión de archivos de trabajo
+              </div>
+
+              <div class="highlight-item">
+                ✅ Compartir resultados
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Capturas -->
+          <div class="app-screenshots">
+
+            <img
+              src="assets/img/apps/nivelacion_topografica/screen_1.png"
+              alt="Captura 1 de la app Nivelación Topográfica GNOMON"
+            />
+
+            <img
+              src="assets/img/apps/nivelacion_topografica/screen_2.png"
+              alt="Captura 2 de la app Nivelación Topográfica GNOMON"
+            />
+
+            <img
+              src="assets/img/apps/nivelacion_topografica/screen_3.png"
+              alt="Captura 3 de la app Nivelación Topográfica GNOMON"
+            />
+
+          </div>
+
+          <!-- Botones -->
+          <div class="hero-actions app-actions">
+
+            <a
+              href="https://play.google.com/store/apps/details?id=com.gnomon.nivelacion&pcampaignid=web_share"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Descargar en Google Play
+            </a>
+
+            <a
+              href="https://play.google.com/store/apps/details?id=com.gnomon.nivelacion&pcampaignid=web_share"
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver ficha de la app
+            </a>
+
+          </div>
+
         </div>
+
       </div>
+    </section>
 
-      <!-- Capturas -->
-      <div class="app-screenshots">
-        <img
-          src="assets/img/apps/nivelacion_topografica/screen_1.png"
-          alt="Captura 1 de la app Nivelación Topográfica GNOMON"
-        />
-        <img
-          src="assets/img/apps/nivelacion_topografica/screen_2.png"
-          alt="Captura 2 de la app Nivelación Topográfica GNOMON"
-        />
-        <img
-          src="assets/img/apps/nivelacion_topografica/screen_3.png"
-          alt="Captura 3 de la app Nivelación Topográfica GNOMON"
-        />
-      </div>
-
-      <!-- Botones -->
-      <div class="hero-actions app-actions">
-        <a
-          href="https://play.google.com/store/apps/details?id=com.gnomon.nivelacion&pcampaignid=web_share"
-          class="btn btn-primary"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Descargar en Google Play
-        </a>
-
-        <a
-          href="https://play.google.com/store/apps/details?id=com.gnomon.nivelacion&pcampaignid=web_share"
-          class="btn btn-secondary"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ver ficha de la app
-        </a>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-    
   </main>
 
   <script
@@ -422,4 +461,3 @@
 
 </body>
 </html>
-
