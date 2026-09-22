@@ -43,15 +43,28 @@ if (!usuario) {
 }
 
 console.log("Usuario autenticado:", usuario.email);
+      // Obtiene el token seguro del usuario autenticado
+      
+const idToken = await usuario.getIdToken();
       
       // Evita que el usuario presione varias veces mientras se prepara el pago
       btnComprarDynamo.disabled = true;
       btnComprarDynamo.textContent = "Preparando pago...";
 
       // Solicita a Firebase una referencia y firma segura para esta compra
-      const respuesta = await fetch(
-        "https://southamerica-east1-gnomon-store.cloudfunctions.net/crearPagoDynamo"
-      );
+     const respuesta = await fetch(
+  "https://southamerica-east1-gnomon-store.cloudfunctions.net/crearPagoDynamo",
+  {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${idToken}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      productoId: "dynamo_volumen_capas"
+    })
+  }
+);
 
       if (!respuesta.ok) {
         throw new Error("Firebase no pudo preparar el pago.");
