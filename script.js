@@ -4,7 +4,24 @@ if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
 
+// =====================================================
+// FIREBASE
+// =====================================================
 
+const firebaseConfig = {
+  apiKey: "AIzaSyDJnOSbkHZp5i87-TARh98GDlnRjEophqY",
+  authDomain: "gnomon-store.firebaseapp.com",
+  projectId: "gnomon-store",
+  storageBucket: "gnomon-store.firebasestorage.app",
+  messagingSenderId: "120541257174",
+  appId: "1:120541257174:web:29c40bff654465f51d9877",
+  measurementId: "G-27KWZ3JRLW"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+const proveedorGoogle = new firebase.auth.GoogleAuthProvider();
 // =====================================================
 // COMPRA DYNAMO CON WOMPI
 // =====================================================
