@@ -34,7 +34,16 @@ if (btnComprarDynamo) {
     const textoOriginal = btnComprarDynamo.textContent;
 
     try {
+// Verifica si el usuario ya inició sesión con Google
+let usuario = auth.currentUser;
 
+if (!usuario) {
+  const resultadoLogin = await auth.signInWithPopup(proveedorGoogle);
+  usuario = resultadoLogin.user;
+}
+
+console.log("Usuario autenticado:", usuario.email);
+      
       // Evita que el usuario presione varias veces mientras se prepara el pago
       btnComprarDynamo.disabled = true;
       btnComprarDynamo.textContent = "Preparando pago...";
