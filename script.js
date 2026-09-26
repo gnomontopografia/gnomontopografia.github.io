@@ -71,12 +71,15 @@ const idToken = await usuario.getIdToken();
       }
 
       const pago = await respuesta.json();
+      // Guarda la referencia para recuperarla al regresar de Wompi
+sessionStorage.setItem("gnomon_compra_reference", pago.reference);
 
       // Abre el checkout de Wompi
       const checkout = new WidgetCheckout({
         currency: pago.currency,
         amountInCents: pago.amountInCents,
         reference: pago.reference,
+        redirectUrl: "https://gnomontopografia.com/compra-exitosa.html",
 
         // Llave pública de Wompi Sandbox
         publicKey: "pub_test_CbEJO1nfapecGbSr0gwDQz5udor7OsTm",
@@ -86,61 +89,11 @@ const idToken = await usuario.getIdToken();
         }
       });
 
-      checkout.open(async function (resultado) {
+     checkout.open(function (resultado) {
   console.log("Resultado de la transacción:", resultado.transaction);
-
-  if (
-    resultado.transaction &&
-    resultado.transaction.status === "APPROVED"
-  ) {
-    try {
-      const tokenDescarga = await usuario.getIdToken(true);
-
-      const respuestaDescarga = await fetch(
-        "https://southamerica-east1-gnomon-store.cloudfunctions.net/descargarDynamo",
-        {
-          method: "POST",
-          headers: {
-            "Authorization": `Bearer ${tokenDescarga}`,
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            reference: pago.reference
-          })
-        }
-      );
-
-      if (!respuestaDescarga.ok) {
-        throw new Error(
-          `Descarga no autorizada: ${respuestaDescarga.status}`
-        );
-      }
-
-      const archivo = await respuestaDescarga.blob();
-      const urlArchivo = URL.createObjectURL(archivo);
-
-      const enlace = document.createElement("a");
-      enlace.href = urlArchivo;
-      enlace.download = "volumen_por_capas.pkt";
-      document.body.appendChild(enlace);
-      enlace.click();
-      enlace.remove();
-
-      URL.revokeObjectURL(urlArchivo);
-
-    } catch (errorDescarga) {
-      console.error("Error descargando producto:", errorDescarga);
-
-      alert(
-        "El pago fue aprobado, pero no fue posible iniciar la descarga. " +
-        "Por favor contacta a GNOMON."
-      );
-    }
-  }
-});
-
-    } catch (error) {
-
+}); 
+      
+} catch (error) {
       console.error("Error preparando el pago:", error);
 
       alert(
