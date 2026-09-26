@@ -121,5 +121,95 @@
     </section>
   </main>
 
+ <script src="https://www.gstatic.com/firebasejs/12.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.4.0/firebase-auth-compat.js"></script> 
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDJnOSbkHZp5i87-TARh98GDlnRjEophqY",
+    authDomain: "gnomon-store.firebaseapp.com",
+    projectId: "gnomon-store",
+    storageBucket: "gnomon-store.firebasestorage.app",
+    messagingSenderId: "120541257174",
+    appId: "1:120541257174:web:29c40bff654465f51d9877",
+    measurementId: "G-27KWZ3JRLW"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  const auth = firebase.auth();
+  const proveedorGoogle = new firebase.auth.GoogleAuthProvider();
+
+  const estado = document.getElementById("estado");
+  const referencia = sessionStorage.getItem("gnomon_compra_reference");
+  async function iniciarDescarga() {
+  try {
+    if (!referencia) {
+      estado.textContent =
+        "No encontramos la referencia de esta compra. Vuelve a productos e inténtalo nuevamente.";
+      return;
+    }
+
+    let usuario = auth.currentUser;
+
+    if (!usuario) {
+      estado.textContent =
+        "Para entregar tu compra de forma segura, confirma tu cuenta de Google.";
+
+      const resultadoLogin = await auth.signInWithPopup(proveedorGoogle);
+      usuario = resultadoLogin.user;
+    }
+
+    estado.textContent =
+      "Pago recibido. Estamos verificando tu compra antes de iniciar la descarga...";
+
+    const token = await usuario.getIdToken(true);
+
+    const respuesta = await fetch(
+      "https://southamerica-east1-gnomon-store.cloudfunctions.net/descargarDynamo",
+      {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          reference: referencia
+        })
+      }
+    );
+
+    if (!respuesta.ok) {
+      throw new Error(`Estado de descarga: ${respuesta.status}`);
+    }
+
+    const archivo = await respuesta.blob();
+    const urlArchivo = URL.createObjectURL(archivo);
+
+    const enlace = document.createElement("a");
+    enlace.href = urlArchivo;
+    enlace.download = "volumen_por_capas.pkt";
+    document.body.appendChild(enlace);
+    enlace.click();
+    enlace.remove();
+
+    URL.revokeObjectURL(urlArchivo);
+
+    estado.textContent =
+      "¡Compra verificada! La descarga de tu archivo ha comenzado.";
+
+    sessionStorage.removeItem("gnomon_compra_reference");
+
+  } catch (error) {
+    console.error("Error verificando la compra:", error);
+
+    estado.textContent =
+      "Tu pago puede estar procesándose todavía. No cierres esta página y vuelve a intentarlo en unos segundos.";
+  }
+}
+
+auth.onAuthStateChanged(() => {
+  iniciarDescarga();
+});
+</script>  
 </body>
 </html>
