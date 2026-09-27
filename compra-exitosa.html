@@ -141,7 +141,10 @@
 
   const estado = document.getElementById("estado");
   const referencia = sessionStorage.getItem("gnomon_compra_reference");
+  let descargaIniciada = false;
   async function iniciarDescarga() {
+      if (descargaIniciada) return;
+  descargaIniciada = true;
   try {
     if (!referencia) {
       estado.textContent =
