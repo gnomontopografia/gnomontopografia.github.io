@@ -107,7 +107,7 @@
 
       <h1>Estamos verificando tu compra</h1>
 
-      <div class="spinner"></div>
+      <div class="spinner" id="spinner"></div>
 
       <p id="estado">
         Estamos confirmando el pago de forma segura.
@@ -140,6 +140,7 @@
   const proveedorGoogle = new firebase.auth.GoogleAuthProvider();
 
   const estado = document.getElementById("estado");
+  const spinner = document.getElementById("spinner");
   const referencia = sessionStorage.getItem("gnomon_compra_reference");
   let descargaIniciada = false;
   async function iniciarDescarga() {
@@ -199,6 +200,7 @@
 
     estado.textContent =
       "¡Compra verificada! La descarga de tu archivo ha comenzado.";
+    spinner.style.display = "none";
 
     sessionStorage.removeItem("gnomon_compra_reference");
 
