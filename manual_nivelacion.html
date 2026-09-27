@@ -1,577 +1,170 @@
 <!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>GNOMON Topografía — Manual</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
---bg:#f5f2e8;
---text:#1a1a1a;
---primary:#c79c3c;
---border:#e0dccf;
---menu:#111;
---menuText:#eee;
---radius:14px;
---maxWidth:1200px;
-}
-
-*{
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
-body{
-margin:0;
-font-family:Montserrat,system-ui;
-background:var(--bg);
-color:var(--text);
-}
-
-header{
-background:#111;
-color:#fff;
-padding:18px 20px;
-}
-
-.header-inner{
-max-width:var(--maxWidth);
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-weight:600;
-letter-spacing:.08em;
-}
-
-main{
-max-width:var(--maxWidth);
-margin:auto;
-display:grid;
-grid-template-columns:260px 1fr;
-gap:22px;
-padding:20px;
-}
-
-@media(max-width:900px){
-main{
-grid-template-columns:1fr;
-}
-aside{
-position:relative;
-}
-}
-
-aside{
-position:sticky;
-top:20px;
-height:fit-content;
-background:var(--menu);
-color:var(--menuText);
-padding:16px;
-border-radius:var(--radius);
-}
-
-aside h3{
-margin-top:0;
-font-size:.85rem;
-letter-spacing:.08em;
-text-transform:uppercase;
-}
-
-.menu{
-display:flex;
-flex-direction:column;
-gap:6px;
-}
-
-.menu a{
-color:var(--menuText);
-text-decoration:none;
-font-size:.85rem;
-padding:6px 8px;
-border-radius:6px;
-}
-
-.menu a:hover{
-background:rgba(255,255,255,.08);
-}
-
-section{
-background:#fff;
-border:1px solid var(--border);
-padding:18px;
-border-radius:var(--radius);
-margin-bottom:20px;
-}
-
-h1{
-font-size:1.5rem;
-margin-top:0;
-}
-
-h2{
-font-size:1.1rem;
-margin-top:0;
-letter-spacing:.05em;
-text-transform:uppercase;
-}
-
-p{
-font-size:.9rem;
-line-height:1.6;
-}
-
-.placeholder{
-padding:10px;
-border:1px dashed #ccc;
-font-size:.8rem;
-color:#777;
-border-radius:6px;
-}
-
-footer{
-max-width:var(--maxWidth);
-margin:auto;
-padding:12px 20px 30px;
-font-size:.75rem;
-color:#777;
-}
-/* MENU MOVIL */
-
-@media(max-width:900px){
-
-#menuBtn{
-display:block;
-}
-
-aside{
-position:fixed;
-left:-260px;
-top:0;
-height:100%;
-width:260px;
-z-index:1000;
-transition:0.3s;
-border-radius:0;
-}
-
-aside.active{
-left:0;
-}
-
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<div class="header-inner">
-<div class="logo">GNOMON TOPOGRAFÍA</div>
-<div style="display:flex;align-items:center;gap:10px">
-
-<button id="menuBtn" style="
-background:none;
-border:none;
-color:white;
-font-size:1.2rem;
-cursor:pointer;
-display:none;
-">
-☰
-</button>
-
-<div>manual de usuario</div>
-
-</div>
-</div>
-</header>
-
-<main>
-
-<!-- MENU IZQUIERDO -->
-<aside id="sidebar">
-
-<h3>Manual GNOMON</h3>
-
-<nav class="menu">
-
-<a href="#introduccion">Introducción</a>
-<a href="#app">La aplicación GNOMON</a>
-<a href="#abreviaturas">Abreviaturas</a>
-<a href="#gestor">Gestor de archivos</a>
-<a href="#nivelacion">Nivelación general</a>
-<a href="#replanteo">Replanteo de niveles</a>
-<a href="#pendientes">Cálculo de pendientes</a>
-<a href="#exportacion">Exportación de archivos</a>
-<a href="#versionpro">Versión PRO</a>
-<a href="#referencias">Referencias</a>
-<a href="#contacto">Contacto</a>
-
-</nav>
-
-</aside>
-
-
-<!-- CONTENIDO DEL MANUAL -->
-<div>
-
-<section id="introduccion">
-
-<h1>Nivelación Topográfica – Gnomon</h1>
-
-<div style="display:flex;flex-direction:column;align-items:center;gap:18px;margin-bottom:20px">
-
-<img 
-src="assets/img/logo_gnomon.png"
-alt="Nivelación Topográfica – Gnomon"
-style="max-width:160px"
->
-
-<p style="text-align:center;font-size:.95rem;max-width:700px">
-
-<strong>Nivelación Topográfica – Gnomon</strong> es una aplicación digital diseñada
-para apoyar los procesos altimétricos utilizados en la topografía moderna.
-La aplicación permite registrar datos de campo, realizar cálculos automáticos
-y organizar la información técnica de manera clara y estructurada.
-
-</p>
-
-</div>
-
-<p>
-
-La aplicación integra diferentes herramientas orientadas al trabajo práctico
-del topógrafo, ingeniero o estudiante, facilitando operaciones comunes de
-nivelación sin necesidad de realizar cálculos manuales prolongados o utilizar
-hojas de cálculo externas.
-
-</p>
-  
-<div style="text-align:center;margin:25px 0">
-
-<img 
-src="assets/img/funciones_nivelacion_topografica.jpeg"
-alt="Funciones de la aplicación GNOMON"
-style="max-width:420px;width:100%;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.15)"
->
-
-<p style="font-size:.8rem;color:#666;margin-top:6px">
-Funciones principales de la aplicación GNOMON.
-</p>
-
-</div>
-  
-<p>
-
-Entre las principales funciones de la aplicación se encuentran:
-
-</p>
-
-<ul>
-
-<li>Nivelación general.</li>
-
-<li>Replanteo de niveles.</li>
-
-<li>Cálculo de pendientes.</li>
-
-<li>Gestión de archivos de trabajo.</li>
-
-<li>Exportación y compartición de resultados.</li>
-
-</ul>
-
-<p>
-
-Este manual tiene como objetivo explicar el funcionamiento general de la
-aplicación y describir el uso de cada uno de sus módulos principales.
-
-</p>
-
-<h2>Video introductorio</h2>
-
-<div style="background:#f3f3f3;border:1px dashed #bbb;padding:30px;text-align:center;border-radius:10px;margin-top:10px">
-
-📺 Aquí se mostrará el video tutorial introductorio de la aplicación.
-
-</div>
-
-</section>
-
-
-
-<section id="abreviaturas">
-
-<h2>Abreviaturas</h2>
-
-<p>
-En los diferentes módulos de la aplicación GNOMON se emplean abreviaturas técnicas 
-propias de la nivelación topográfica. Estos términos permiten interpretar las 
-tablas de cálculo de manera rápida y estandarizada.
-</p>
-
-<div style="text-align:center;margin:25px 0">
-
-<img 
-src="assets/img/abreviatura.png"
-alt="Abreviaturas GNOMON"
-style="max-width:420px;width:100%;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.15)"
->
-
-<p style="font-size:.8rem;color:#666;margin-top:6px">
-Resumen visual de las abreviaturas utilizadas en la aplicación.
-</p>
-
-</div>
-
-<h3>Abreviaturas generales</h3>
-
-<ul>
-
-<li><strong>PTO:</strong> Identificador numérico del punto dentro del proceso de cálculo.</li>
-
-<li><strong>V+:</strong> Lectura tomada sobre un punto con cota conocida para calcular la altura instrumental.</li>
-
-<li><strong>HI:</strong> Altura instrumental obtenida al sumar la cota del punto conocido con la vista más (V+).</li>
-
-<li><strong>VI:</strong> Lecturas realizadas a puntos intermedios desde la misma posición del instrumento.</li>
-
-<li><strong>V−:</strong> Lectura tomada hacia un punto de cambio o cierre antes de mover el instrumento.</li>
-
-<li><strong>Cota:</strong> Elevación calculada del punto.</li>
-
-<li><strong>Descripción:</strong> Identificación del punto (BM, eje, cambio, entre otros).</li>
-
-<li><strong>BM:</strong> Punto con cota conocida utilizado como referencia inicial.</li>
-
-<li><strong>Punto de cambio:</strong> Punto utilizado para trasladar la nivelación al cambiar el instrumento.</li>
-
-</ul>
-
-<h3>Replanteo de niveles</h3>
-
-<ul>
-
-<li><strong>VI ideal:</strong> Lectura necesaria para alcanzar la cota objetivo.</li>
-
-<li><strong>Δ (Delta):</strong> Diferencia entre la lectura real y la ideal, indica la corrección en campo.</li>
-
-<li><strong>Cota Obj:</strong> Cota objetivo que se desea replantear.</li>
-
-<li><strong>Cota (Lect.):</strong> Cota calculada con la lectura real.</li>
-
-</ul>
-
-<h3>Cálculo de pendientes</h3>
-
-<ul>
-
-<li><strong>Dist:</strong> Distancia entre puntos consecutivos.</li>
-
-<li><strong>Pendiente (%):</strong> Inclinación definida para el tramo.</li>
-
-<li><strong>Cota inicio:</strong> Cota base desde la cual inicia el cálculo de la pendiente.</li>
-
-</ul>
-
-</section>
-
-
-<section id="gestor">
-
-<h2>Gestor de archivos</h2>
-
-<p>
-El gestor de archivos es el módulo principal para la organización de proyectos dentro de la aplicación GNOMON. 
-Desde esta sección el usuario puede crear, importar y administrar todos los archivos de trabajo utilizados en los distintos módulos.
-</p>
-
-<div style="text-align:center;margin:25px 0">
-
-<img 
-src="assets/img/gestor_archivos.jpeg"
-alt="Gestor de archivos GNOMON"
-style="max-width:420px;width:100%;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.15)"
->
-
-<p style="font-size:.8rem;color:#666;margin-top:6px">
-Interfaz del gestor de archivos de la aplicación.
-</p>
-
-</div>
-
-<h3>Funciones principales</h3>
-
-<ul>
-
-<li><strong>Buscar:</strong> Permite localizar rápidamente archivos o proyectos mediante el nombre.</li>
-
-<li><strong>Filtros:</strong> Organización de archivos por categorías como todos, favoritos, locales o recientes.</li>
-
-<li><strong>Crear nuevo archivo:</strong> Genera un nuevo proyecto para trabajar dentro de cualquier módulo.</li>
-
-<li><strong>Subir archivo existente:</strong> Permite cargar archivos externos en formato compatible (CSV o TXT).</li>
-
-<li><strong>Importar desde otro módulo:</strong> Facilita reutilizar información generada en otros procesos dentro de la aplicación.</li>
-
-<li><strong>Tarjetas de archivos:</strong> Muestran información básica como nombre, fecha y descripción del proyecto.</li>
-
-<li><strong>Opciones adicionales:</strong> Cada archivo dispone de acciones como editar, eliminar o marcar como favorito.</li>
-
-</ul>
-
-<p>
-Este módulo funciona como punto de entrada a todos los procesos de cálculo, permitiendo mantener un flujo de trabajo ordenado y continuo.
-</p>
-
-</section>
-
-
-<section id="nivelacion">
-
-<h2>Nivelación general</h2>
-
-<p>
-El módulo de nivelación general permite realizar cálculos altimétricos de forma secuencial a partir de un punto de referencia conocido. 
-A través de este proceso, la aplicación calcula automáticamente las cotas de los puntos levantados en campo.
-</p>
-
-<div style="text-align:center;margin:25px 0">
-
-<img 
-src="assets/img/nivelacion_general.jpeg"
-alt="Nivelación general GNOMON"
-style="max-width:420px;width:100%;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.15)"
->
-
-<p style="font-size:.8rem;color:#666;margin-top:6px">
-Interfaz del módulo de nivelación general.
-</p>
-
-</div>
-
-<h3>Funcionamiento general</h3>
-
-<ul>
-
-<li><strong>Punto inicial:</strong> Se parte de un punto con cota conocida (BM o referencia).</li>
-
-<li><strong>Altura instrumental (HI):</strong> Se calcula automáticamente al ingresar la lectura inicial (V+).</li>
-
-<li><strong>Lecturas intermedias (VI):</strong> Permiten obtener las cotas de los puntos intermedios sin mover el instrumento.</li>
-
-<li><strong>Punto de cambio (V−):</strong> Se utiliza para trasladar la nivelación al cambiar la posición del equipo.</li>
-
-<li><strong>Continuidad del proceso:</strong> El sistema recalcula la nueva HI automáticamente al iniciar una nueva estación.</li>
-
-<li><strong>Cálculo de cotas:</strong> Cada lectura genera automáticamente la elevación correspondiente del punto.</li>
-
-</ul>
-
-<h3>Elementos de la interfaz</h3>
-
-<ul>
-
-<li><strong>Tabla de datos:</strong> Permite registrar y visualizar las lecturas y cotas calculadas.</li>
-
-<li><strong>Controles superiores:</strong> Incluyen opciones para ordenar, invertir, guardar, exportar y agregar nuevos registros.</li>
-
-<li><strong>Navegación lateral:</strong> Facilita el desplazamiento entre los puntos registrados.</li>
-
-<li><strong>Gráfica de perfil:</strong> Representa visualmente la variación de las cotas a lo largo del recorrido.</li>
-
-</ul>
-
-<p>
-Este módulo automatiza el flujo tradicional de nivelación, reduciendo errores de cálculo y permitiendo un registro claro y continuo de la información de campo.
-</p>
-
-</section>
-
-
-<section id="replanteo">
-<h2>Replanteo de niveles</h2>
-<div class="placeholder">
-Funcionamiento del módulo de replanteo.
-</div>
-</section>
-
-
-<section id="pendientes">
-<h2>Cálculo de pendientes</h2>
-<div class="placeholder">
-Funcionamiento del módulo de cálculo de pendientes.
-</div>
-</section>
-
-
-<section id="exportacion">
-<h2>Exportación de archivos</h2>
-<div class="placeholder">
-Explicación de exportación TXT, Excel y compartir.
-</div>
-</section>
-
-
-<section id="versionpro">
-<h2>Versión PRO</h2>
-<div class="placeholder">
-Explicación de funciones desbloqueadas en versión PRO.
-</div>
-</section>
-
-
-<section id="referencias">
-<h2>Referencias</h2>
-<div class="placeholder">
-Normativas o manuales técnicos relacionados.
-</div>
-</section>
-
-
-<section id="contacto">
-<h2>Contacto</h2>
-<div class="placeholder">
-Información de contacto y sitio web GNOMON.
-</div>
-</section>
-
-</div>
-
-</main>
-
-<footer>
-
-© <span id="year"></span> GNOMON Topografía
-
-</footer>
-
-<script>
-document.getElementById("year").textContent=new Date().getFullYear();
-</script>
-<script>
-
-const menuBtn = document.getElementById("menuBtn");
-const sidebar = document.getElementById("sidebar");
-
-menuBtn.addEventListener("click", () => {
-sidebar.classList.toggle("active");
-});
-
-</script>
-</body>
-</html>
-
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual de Nivelación Topográfica — GNOMON</title>
+<meta name="description" content="Guía práctica de Gnomon: nivelación general, replanteo de niveles y pendientes. Confirma datos, importa puntos y guarda tus trabajos.">
+<link rel="stylesheet" href="assets/manual/manual.css"><script src="assets/manual/manual.js" defer></script>
+</head><body>
+<a class="skip" href="#contenido">Ir al contenido</a>
+<header class="site-header"><div class="header-inner"><a class="brand" href="index.html">GNOMON<span>TOPOGRAFÍA</span></a><div class="header-actions"><a href="#indice">Índice</a><button id="print" type="button">Imprimir / PDF</button></div></div></header>
+<div class="layout"><aside><details id="indice" open><summary>En este manual</summary><nav aria-label="Índice del manual"><a href="#video">Video introductorio</a><a href="#app">Elige la herramienta adecuada</a><a href="#confirmar">La clave: escribe y confirma</a><a href="#gestor">Crea y organiza tus trabajos</a><a href="#importacion">Importa tus puntos: solo tres columnas</a><a href="#nivelacion">Nivelación general, paso a paso</a><a href="#replanteo">Replanteo de niveles</a><a href="#pendientes">Cálculo y replanteo de pendientes</a><a href="#exportacion">Guarda, exporta y comparte</a><a href="#opciones">Ajusta texto, celdas y espacio</a><a href="#tutoriales">Tutoriales y avisos que puedes repetir</a><a href="#versionpro">Prueba las herramientas y activa PRO</a><a href="#problemas">Respuestas rápidas</a><a href="#abreviaturas">Qué significa cada columna</a><a href="#referencias">Alcance de esta guía</a><a href="#contacto">¿Necesitas ayuda?</a></nav></details></aside>
+<main id="contenido"><section class="hero" id="introduccion"><p class="eyebrow">MANUAL DE USUARIO · EDICIÓN 1.3</p>
+<h1>De la primera lectura<br>al trabajo guardado.</h1>
+<p class="lead">Aprende a registrar, comprobar y compartir tus trabajos con Nivelación Topográfica — Gnomon.</p>
+<div class="hero-rule"><span class="key-icon" aria-hidden="true">↵</span><p><strong>Escribe. Confirma. Continúa.</strong><br>Pulsa Enter o ✓ al terminar cada dato. La app te guía al siguiente paso.</p></div>
+<p class="version-note">Guía preparada para la próxima actualización 1.3.0. <a href="#referencias">Consulta qué versión describe</a>.</p>
+<a class="button" href="#confirmar">Empieza aquí <span aria-hidden="true">↓</span></a>
+</section><section id="video" aria-labelledby="video-titulo"><h2 id="video-titulo">Video introductorio</h2>
+<div class="video-slot" id="video-slot"><div><span class="video-icon" aria-hidden="true">▶</span><p><strong>Tu primera nivelación con Gnomon</strong></p><p>Video introductorio · Próximamente</p><p class="video-note">Aquí podrás ver el recorrido completo. Mientras tanto, sigue la guía paso a paso de abajo.</p></div></div>
+<!-- Para incorporar el video, completar youtubeVideoId en assets/manual/manual.js.
+     Se mostrará un botón para cargar el reproductor de YouTube bajo demanda. -->
+</section><section id="app" aria-labelledby="app-titulo"><h2 id="app-titulo">Elige la herramienta adecuada</h2>
+<div class="cards">
+<a class="card" href="#nivelacion"><span class="number">01</span><h3>Nivelación general</h3><p>Conoce la cota de nuevos puntos y continúa al cambiar de estación.</p></a>
+<a class="card" href="#replanteo"><span class="number">02</span><h3>Replanteo de niveles</h3><p>Comprueba cuánto debes subir o bajar un punto hasta alcanzar una cota objetivo.</p></a>
+<a class="card" href="#pendientes"><span class="number">03</span><h3>Cálculo de pendientes</h3><p>Replantea una rasante según el porcentaje y la distancia desde el inicio.</p></a></div>
+<p>Comienza con un trabajo de práctica. Los ejemplos usan metros para cotas, lecturas y distancias; mantén la misma unidad durante todo el trabajo.</p>
+</section><section id="confirmar" aria-labelledby="confirmar-titulo"><h2 id="confirmar-titulo">La clave: escribe y confirma</h2>
+<div class="callout"><strong>Después de cada dato, pulsa <kbd>Enter</kbd> o <kbd>✓</kbd> en el teclado.</strong><p>Es el botón del teclado para terminar la entrada; su aspecto depende del celular. Confirma el dato para que la app revise lo que falta y continúe el recorrido.</p></div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Qué ocurre al confirmar"><table><thead><tr><th>Cuando confirmas…</th><th>La app…</th></tr></thead><tbody>
+<tr><td>Identificador, descripción o cota</td><td>Te guía al siguiente dato necesario. Si el punto es conocido, aprovecha los datos del catálogo.</td></tr>
+<tr><td>Una lectura válida en nivelación general</td><td>Revisa los datos y continúa al siguiente punto o al punto de cambio.</td></tr>
+<tr><td>Una lectura en replanteo de niveles o pendientes</td><td>Cierra el teclado y conserva el mismo punto para revisar el resultado y volver a medir. Pulsa <strong>+</strong> cuando quieras otro punto.</td></tr>
+</tbody></table></div>
+<p>La celda resaltada orienta el siguiente paso. Si falta un dato, lee la alerta y completa la casilla indicada. Las celdas calculadas automáticamente no admiten escritura; al tocarlas aparece una explicación.</p>
+<p><strong>Confirmar no sustituye a Guardar.</strong> Usa el botón con el disquete para conservar el trabajo antes de salir o compartirlo.</p>
+</section><section id="gestor" aria-labelledby="gestor-titulo"><h2 id="gestor-titulo">Crea y organiza tus trabajos</h2>
+<ol class="steps"><li>Abre la herramienta y entra en su gestor.</li>
+<li>Pulsa <strong>Crear nuevo archivo</strong>. Escribe un nombre reconocible y, si lo necesitas, una descripción.</li>
+<li>Si tienes un catálogo, adjunta un TXT, CSV o Excel desde el formulario de creación. Es opcional.</li>
+<li>Revisa los puntos del adjunto y confirma la importación. Luego completa la creación del proyecto.</li>
+<li>Toca el trabajo en el listado para abrirlo.</li></ol>
+<figure><a href="assets/manual/gestor.png" target="_blank" rel="noopener" aria-label="Ampliar: Gestor con buscador, filtros y un proyecto de ejemplo"><img src="assets/manual/gestor.png" alt="Gestor con buscador, filtros y un proyecto de ejemplo" loading="lazy" width="1350" height="1350"></a><figcaption>Gestor de nivelación general con un trabajo de práctica. <span>Toca la captura para ampliarla.</span></figcaption></figure>
+<h3>No confundas estas entradas</h3>
+<ul><li><strong>Subir archivo existente:</strong> abre un proyecto <strong>JSON</strong> compartido desde el gestor del mismo módulo.</li>
+<li><strong>Subir archivo dentro de Crear:</strong> adjunta una lista de puntos <strong>TXT, CSV o XLSX</strong>.</li>
+<li><strong>Importar desde otro módulo:</strong> reutiliza un catálogo de puntos; no traslada todas las observaciones de la otra herramienta.</li></ul>
+<p>Busca por nombre o descripción, usa los filtros <strong>Todos, Favoritos, Locales y Recientes</strong> y alterna entre tarjetas y lista. La estrella marca un favorito. El menú de cada trabajo permite renombrarlo, duplicarlo, compartirlo o eliminarlo.</p>
+<p>Los trabajos se guardan en el dispositivo. Antes de borrar uno o cambiar de teléfono, <a href="#exportacion">comparte una copia JSON</a> y consérvala fuera de la app.</p>
+</section><section id="importacion" aria-labelledby="importacion-titulo"><h2 id="importacion-titulo">Importa tus puntos: solo tres columnas</h2>
+<p>Prepara estas columnas, en este orden. El encabezado es opcional.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Ejemplo de catálogo"><table><thead><tr><th>Punto</th><th>Cota</th><th>Descripción</th></tr></thead><tbody>
+<tr><td>001</td><td>100.250</td><td>Borde de vía</td></tr><tr><td>002</td><td>101.500</td><td>Poste, lado derecho</td></tr><tr><td>BM1</td><td>99.750</td><td>Referencia</td></tr></tbody></table></div>
+<div class="downloads" aria-label="Archivos de ejemplo"><a class="button" download href="assets/manual/Puntos-ejemplo.xlsx">Descargar Excel</a><a class="button secondary" download href="assets/manual/Puntos-ejemplo.csv">Descargar CSV</a><a class="button secondary" download href="assets/manual/Puntos-ejemplo.txt">Descargar TXT</a></div>
+<p>Son los mismos ejemplos de <strong>Opciones → Ejemplos de importación</strong>. Descarga uno, cambia los datos y úsalo como plantilla.</p>
+<h3>Antes de cargar el archivo</h3><ul>
+<li>En Excel usa <strong>.xlsx</strong>, sin contraseña y con valores, no fórmulas. Convierte el formato antiguo <strong>.xls</strong> a .xlsx.</li>
+<li>Escribe los identificadores como texto para conservar ceros iniciales: <strong>001</strong> no es lo mismo que <strong>1</strong>.</li>
+<li>Usa solo las tres columnas de datos. No incluyas coordenadas Este/Norte ni otras columnas de trabajo.</li>
+<li>En CSV con coma decimal, usa punto y coma como separador: <code>001;100,25;Borde de vía</code>.</li>
+<li>Usa un archivo de hasta 5 MB y no más de 10 000 filas. Evita repetir identificadores.</li></ul>
+<figure><a href="assets/manual/importacion.png" target="_blank" rel="noopener" aria-label="Ampliar: Diálogo Revisar puntos con tres columnas y botón de confirmación"><img src="assets/manual/importacion.png" alt="Diálogo Revisar puntos con tres columnas y botón de confirmación" loading="lazy" width="1350" height="1350"></a><figcaption>Comprueba los identificadores, las cotas y las descripciones antes de importar. <span>Toca la captura para ampliarla.</span></figcaption></figure>
+<p>Si el Excel tiene varias hojas con datos, selecciona la adecuada. La vista previa indica cuántos puntos se aceptan y qué filas se omiten. Los puntos que ya existen en el catálogo no se reemplazan desde esta importación. Revisa los avisos antes de pulsar <strong>Importar</strong>; puedes cancelar y corregir el archivo.</p>
+<details><summary>El archivo recibido por WhatsApp cambió de nombre o extensión</summary><p>Descarga el documento al dispositivo y selecciónalo desde la importación. La app revisa el contenido, no solo la extensión. Si sigue siendo texto de puntos o un XLSX válido, puede reconocerlo aunque se haya renombrado. Cambiar la extensión de una foto, PDF o archivo dañado no lo convierte en catálogo.</p><p>Si no abre, vuelve a pedirlo como documento original o guárdalo como TXT, CSV o XLSX. Compara las tres columnas con los ejemplos de arriba.</p></details>
+</section><section id="nivelacion" aria-labelledby="nivelacion-titulo"><h2 id="nivelacion-titulo">Nivelación general, paso a paso</h2>
+<p>Parte de una cota conocida para calcular nuevas cotas. <strong>Registra una sola lectura por fila:</strong> vista (+), vista (I) o vista (−).</p>
+<h3>1. Realiza el amarre inicial</h3>
+<ol class="steps"><li>Escribe el punto de referencia, por ejemplo <strong>BM1</strong>, y confirma.</li><li>Si está en el catálogo, la app completa sus datos. Si es nuevo, escribe la descripción y la cota conocida, confirmando cada dato.</li><li>Introduce la <strong>Vista (+)</strong> y confirma. El primer punto debe comenzar con esta lectura; una intermedia o una vista (−) no sirven para iniciar el amarre.</li></ol>
+<p class="formula">Altura instrumental = cota conocida + vista (+)</p>
+<h3>2. Registra los puntos siguientes</h3>
+<p>Introduce el nuevo punto y su descripción, confirmando con Enter o ✓. Cuando aparezca la elección de lectura:</p>
+<ul><li><strong>Intermedia — vista (I):</strong> calcula un punto y continúa desde la misma estación.</li><li><strong>Cambio/cierre — vista (−):</strong> termina las observaciones desde esa estación.</li></ul>
+<p>Selecciona una, escribe la lectura y confirma. Puedes cambiar de tipo antes de registrarla. Si ya escribiste otra lectura en esa fila, bórrala antes de cambiar de tipo; para una observación adicional crea una fila nueva.</p>
+<p class="formula">Cota del punto = altura instrumental − lectura</p>
+<h3>3. Continúa después de un cambio</h3>
+<p>Al confirmar la vista (−), la app prepara otra fila con el mismo punto de cambio y su cota. Traslada el instrumento, toma la nueva vista (+) sobre ese punto y confírmala para obtener la nueva altura instrumental. Son <strong>dos filas distintas</strong>, una para cada estación.</p>
+<p>Si el trabajo terminó, no tomes una vista (+) ficticia para completar la fila preparada. Guarda el trabajo. El cierre de una estación no equivale a comprobar el cierre contra un BM conocido ni a una compensación automática.</p>
+<figure><a href="assets/manual/nivelacion.png" target="_blank" rel="noopener" aria-label="Ampliar: Tabla de nivelación con dos estaciones y una lectura por fila"><img src="assets/manual/nivelacion.png" alt="Tabla de nivelación con dos estaciones y una lectura por fila" loading="lazy" width="1350" height="820"></a><figcaption>PC1 aparece en dos filas porque sirve de cambio entre estaciones. <span>Toca la captura para ampliarla.</span></figcaption></figure>
+<h3>Ejemplo para practicar</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Ejemplo de nivelación"><table><thead><tr><th>Punto</th><th>Lectura</th><th>Valor (m)</th><th>Resultado (m)</th></tr></thead><tbody>
+<tr><td>BM1</td><td>Vista (+)</td><td>1.500</td><td>Cota inicial 100.000 → altura instrumental 101.500</td></tr>
+<tr><td>P1</td><td>Vista (I)</td><td>1.200</td><td>Cota 100.300</td></tr>
+<tr><td>PC1</td><td>Vista (−)</td><td>1.800</td><td>Cota 99.700; termina la estación</td></tr>
+<tr><td>PC1</td><td>Vista (+), nueva estación</td><td>1.400</td><td>Altura instrumental 101.100</td></tr>
+<tr><td>P2</td><td>Vista (I)</td><td>1.100</td><td>Cota 100.000</td></tr></tbody></table></div>
+<p>Comprueba tus resultados y pulsa <strong>Guardar</strong>. El perfil permite visualizar la variación de cotas; no representa por sí solo las distancias reales del terreno.</p>
+</section><section id="replanteo" aria-labelledby="replanteo-titulo"><h2 id="replanteo-titulo">Replanteo de niveles</h2>
+<p>Lleva un punto a una cota objetivo. Primero completa el amarre; sin vista (+) no existe una altura instrumental válida para calcular diferencias.</p>
+<ol class="steps"><li>En <strong>Punto de amarre / control</strong>, escribe el punto conocido y confirma. Si no está en el catálogo, completa descripción y cota.</li><li>Introduce la <strong>Vista (+)</strong> y confirma. La <strong>Altura instrumental</strong> se calcula sola y el amarre queda fijado.</li><li>En la tabla, escribe el punto que vas a replantear. Si es conocido, se completan descripción y cota objetivo. Si es nuevo, introdúcelas y confirma cada dato.</li><li>Introduce la <strong>Vista (I)</strong> y confirma. El teclado se cierra para ver el resultado; el punto sigue siendo el mismo.</li><li>Repite la lectura cuando sea necesario. Para pasar a otro punto, pulsa <strong>+</strong> o selecciónalo desde el catálogo de la herramienta.</li></ol>
+<figure><a href="assets/manual/replanteo.png" target="_blank" rel="noopener" aria-label="Ampliar: Amarre y tabla de replanteo con diferencia de 0.200 metros"><img src="assets/manual/replanteo.png" alt="Amarre y tabla de replanteo con diferencia de 0.200 metros" loading="lazy" width="1350" height="944"></a><figcaption>La altura instrumental es 101.500 m. La lectura 1.100 m sitúa P1 a 100.400 m, 0.200 m por encima del objetivo. <span>Toca la captura para ampliarla.</span></figcaption></figure>
+<h3>Cómo interpretar el resultado</h3>
+<p class="formula">Lectura ideal = altura instrumental − cota objetivo<br>Cota de lectura = altura instrumental − vista (I)<br>Diferencia = cota de lectura − cota objetivo</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Signo de la diferencia"><table><thead><tr><th>Diferencia</th><th>Interpretación</th></tr></thead><tbody>
+<tr><td>Positiva: +0.200 m</td><td>El punto está alto: <strong>bajar 0.200 m</strong>.</td></tr>
+<tr><td>Negativa: −0.200 m</td><td>El punto está bajo: <strong>subir 0.200 m</strong>.</td></tr>
+<tr><td>Cero</td><td>La cota de lectura coincide con el objetivo según el cálculo. Comprueba también la precisión y tolerancia de tu trabajo.</td></tr></tbody></table></div>
+<p>En el ejemplo: BM 100.000 m + vista (+) 1.500 m = altura instrumental 101.500 m. Con objetivo 100.200 m, la lectura ideal es 1.300 m. Una lectura de 1.500 m daría cota 100.000 m y diferencia −0.200 m: habría que subir.</p>
+<p><strong>Corregir amarre</strong> permite editar la referencia, pero recalcula los resultados asociados. Para trabajar desde otra estación sin modificar las observaciones anteriores, conserva el proyecto y abre uno nuevo.</p>
+</section><section id="pendientes" aria-labelledby="pendientes-titulo"><h2 id="pendientes-titulo">Cálculo y replanteo de pendientes</h2>
+<p>El amarre establece la altura instrumental. La pendiente y la cota de inicio establecen la rasante que quieres replantear. <strong>La cota de inicio de la pendiente no tiene que ser la cota del BM.</strong></p>
+<ol class="steps"><li>Completa el amarre: punto, descripción, cota conocida y vista (+). Confirma cada dato.</li><li>Pulsa <strong>Calcular pendiente</strong>: puedes obtenerla a partir de puntos conocidos, a partir de altura y distancia o introducir el porcentaje manualmente.</li><li>Revisa el signo del porcentaje y completa la <strong>Cota de inicio</strong>. Confirma antes de continuar.</li><li>En la tabla introduce el punto, su descripción y la <strong>Distancia</strong> horizontal acumulada desde el origen de la pendiente.</li><li>Introduce la <strong>Vista (I)</strong> y confirma. Revisa diferencia y gráfico; puedes volver a medir el mismo punto. Pulsa <strong>+</strong> cuando quieras otro.</li></ol>
+<div class="callout"><strong>La distancia siempre se mide desde el inicio.</strong><p>Para puntos a 0, 10 y 20 m del origen escribe <strong>0, 10 y 20</strong>, no 0, 10 y 10. Cero representa el origen; no se admiten distancias negativas en la tabla.</p></div>
+<figure><a href="assets/manual/pendientes.png" target="_blank" rel="noopener" aria-label="Ampliar: Amarre, porcentaje y tabla de puntos a 0, 10 y 20 metros del inicio"><img src="assets/manual/pendientes.png" alt="Amarre, porcentaje y tabla de puntos a 0, 10 y 20 metros del inicio" loading="lazy" width="1350" height="987"></a><figcaption>Rasante de +2 % desde cota 100.000 m: objetivos 100.000, 100.200 y 100.400 m. <span>Toca la captura para ampliarla.</span></figcaption></figure>
+<p class="formula">Pendiente (%) = (cota final − cota inicial) ÷ distancia horizontal × 100<br>Cota objetivo = cota de inicio + pendiente (%) ÷ 100 × distancia</p>
+<p>La distancia usada para <em>calcular el porcentaje</em> debe ser mayor que cero. Una pendiente positiva sube en el sentido de las distancias crecientes; una negativa baja.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Ejemplo de pendiente"><table><thead><tr><th>Distancia (m)</th><th>Cota con +2 % (m)</th><th>Cota con −2 % (m)</th></tr></thead><tbody>
+<tr><td>0</td><td>100.000</td><td>100.000</td></tr><tr><td>10</td><td>100.200</td><td>99.800</td></tr><tr><td>20</td><td>100.400</td><td>99.600</td></tr></tbody></table></div>
+<p>La cota objetivo se calcula con la rasante; <strong>no se toma de la cota del catálogo</strong>. La diferencia se interpreta igual que en niveles: positiva, bajar; negativa, subir. Si cambias amarre, pendiente o cota de inicio, revisa los resultados recalculados.</p>
+</section><section id="exportacion" aria-labelledby="exportacion-titulo"><h2 id="exportacion-titulo">Guarda, exporta y comparte</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Guardar y exportar"><table><thead><tr><th>Acción</th><th>Qué obtienes</th><th>Cuándo usarla</th></tr></thead><tbody>
+<tr><td><strong>Guardar</strong></td><td>El trabajo actualizado en el dispositivo.</td><td>Antes de salir o conservar una medición.</td></tr>
+<tr><td><strong>Exportar a Excel / Compartir</strong></td><td>Una tabla de resultados <strong>.xlsx</strong>.</td><td>Para entregar o trabajar resultados en una hoja de cálculo.</td></tr>
+<tr><td><strong>Compartir</strong> desde el gestor</td><td>Un proyecto <strong>.json</strong> con la información del trabajo.</td><td>Para conservar una copia o continuar en otro dispositivo con la misma herramienta.</td></tr></tbody></table></div>
+<ol class="steps"><li>Confirma el último dato y pulsa <strong>Guardar</strong>.</li><li>Para entregar resultados, pulsa Exportar y elige una aplicación de destino en Android.</li><li>Para una copia del trabajo, vuelve al gestor, abre su menú y elige Compartir. Guarda el JSON donde puedas recuperarlo.</li><li>Para restaurarlo, abre el gestor del mismo módulo y pulsa <strong>Subir archivo existente</strong>.</li></ol>
+<p>En esta edición los archivos usan el nombre del proyecto: <strong>Lote norte.xlsx</strong> o <strong>Lote norte.json</strong>, sin números añadidos. Si lo renombraste en el gestor, se usa ese nombre. Los caracteres incompatibles con nombres de archivo se sustituyen.</p>
+<p>El Excel de resultados contiene las columnas de la herramienta: <strong>no es necesariamente un catálogo de tres columnas</strong>. Para reutilizarlo como lista de puntos, prepara una hoja con Punto, Cota y Descripción. Para continuar el trabajo completo, utiliza el JSON.</p>
+</section><section id="opciones" aria-labelledby="opciones-titulo"><h2 id="opciones-titulo">Ajusta texto, celdas y espacio</h2>
+<p>Abre <strong>Opciones</strong> con el botón de ajustes. La apariencia se aplica a las tres herramientas.</p>
+<ul><li><strong>Tamaño del texto:</strong> pequeño, normal o grande.</li><li><strong>Tamaño de las celdas:</strong> compacto, normal o amplio. También afecta a los campos del amarre y de cálculo de pendiente.</li><li><strong>Espacio de tabla y gráfico:</strong> ajusta el separador dentro de la herramienta o su control en Opciones. Cada módulo recuerda su reparto.</li><li><strong>Restablecer apariencia:</strong> vuelve a la presentación predeterminada.</li></ul>
+<p>Desplaza la tabla horizontalmente para ver sus columnas. Los botones de intercambio permiten cambiar la posición de tabla y gráfico o invertir la presentación de las filas. No sustituyen la confirmación del teclado.</p>
+<figure><a href="assets/manual/opciones.png" target="_blank" rel="noopener" aria-label="Ampliar: Opciones de tamaño de texto, celdas y reparto de tabla y gráfico"><img src="assets/manual/opciones.png" alt="Opciones de tamaño de texto, celdas y reparto de tabla y gráfico" loading="lazy" width="1350" height="1350"></a><figcaption>Ajusta la presentación a tu pantalla. Más abajo están ayuda, tutoriales, compras y privacidad. <span>Toca la captura para ampliarla.</span></figcaption></figure>
+<p>En este menú también están el manual, los ejemplos de importación, los tutoriales, las ayudas del proyecto, las opciones PRO, la restauración de compras y la política de privacidad. La opción de privacidad de anuncios aparece cuando corresponde.</p>
+</section><section id="tutoriales" aria-labelledby="tutoriales-titulo"><h2 id="tutoriales-titulo">Tutoriales y avisos que puedes repetir</h2>
+<p>El gestor y las tres herramientas tienen guías diferentes. Muestran los controles reales sin crear mediciones ni consumir usos gratuitos.</p>
+<ul><li><strong>Gestor:</strong> el aviso automático se ofrece si está vacío y todavía no se ha respondido. Aceptarlo o elegir que ya sabes usarlo evita que insista.</li>
+<li><strong>Cada herramienta:</strong> pregunta la primera vez que se abre. Ver nivelación general no marca como vistos los otros tutoriales.</li>
+<li><strong>Para repetir:</strong> abre Ayuda en el gestor o en la herramienta y pulsa Repetir tutorial.</li>
+<li><strong>Para restablecer el aviso:</strong> usa Opciones. Cada herramienta tiene su propio restablecimiento; en las opciones generales puedes restablecerlas por separado. Se ofrecerá al volver a abrirla.</li></ul>
+<figure><a href="assets/manual/tutorial.png" target="_blank" rel="noopener" aria-label="Ampliar: Tutorial de nivelación con columna resaltada y controles de navegación"><img src="assets/manual/tutorial.png" alt="Tutorial de nivelación con columna resaltada y controles de navegación" loading="lazy" width="1350" height="1350"></a><figcaption>Cada paso destaca el elemento que explica. Usa Siguiente, Anterior o Salir del tutorial. <span>Toca la captura para ampliarla.</span></figcaption></figure>
+<p>Las alertas de ayuda del trabajo son independientes. <strong>No mostrar de nuevo</strong> oculta esa explicación para ese proyecto; no elimina las validaciones. Recupera las explicaciones con <strong>Reactivar las ayudas de este proyecto</strong>. En un proyecto nuevo vuelven a estar disponibles.</p>
+</section><section id="versionpro" aria-labelledby="versionpro-titulo"><h2 id="versionpro-titulo">Prueba las herramientas y activa PRO</h2>
+<p>La edición gratuita permite probar el flujo antes de comprar. El límite base diario de esta versión es de <strong>7 puntos en nivelación general</strong> y <strong>4 en cada herramienta de replanteo</strong>. La app indica las opciones disponibles al alcanzar un tope.</p>
+<p>Las funciones de importación y exportación que muestran prueba gratuita permiten un primer uso por función y módulo. Cancelar o encontrar un error no debería completar esa prueba. Después se ofrecen las opciones aplicables, como un anuncio recompensado o PRO. Los anuncios dependen de su disponibilidad.</p>
+<p><strong>PRO</strong> elimina los topes diarios de puntos, permite crear proyectos e importar y exportar sin esos límites, y trabajar sin anuncios. Revisa el precio que muestra Google Play antes de confirmar la compra.</p>
+<h3>Ya compré y no aparece PRO</h3>
+<ol class="steps"><li>Comprueba que usas la app de Google Play y la misma cuenta con la que compraste.</li><li>Con conexión a Internet, abre <strong>Opciones → Restaurar compras PRO</strong>.</li><li>Si sigue sin reconocerse, contacta con soporte e indica versión de la app y qué ocurre. No publiques contraseñas ni datos de pago.</li></ol>
+<p><strong>Gnomon Pruebas</strong>, instalada directamente para pruebas, es distinta de la app publicada. No debe usarse para comprobar si tu compra de la versión de Google Play está activa.</p>
+</section><section id="problemas" aria-labelledby="problemas-titulo"><h2 id="problemas-titulo">Respuestas rápidas</h2>
+<details><summary>Escribí el dato, pero no pasó al siguiente</summary><p>Pulsa Enter o ✓ en el teclado. Si falta información, completa la celda indicada. En los replanteos, confirmar una lectura conserva el mismo punto de forma intencional; pulsa + para cambiar.</p></details>
+<details><summary>No aparecen diferencias o cotas calculadas</summary><p>Revisa el amarre: punto, cota válida y vista (+). En pendientes revisa porcentaje, cota de inicio y distancia. En niveles comprueba la cota objetivo. No escribas directamente en la altura instrumental u otras celdas calculadas.</p></details>
+<details><summary>Quiero poner vista (+) y vista (−) en el mismo punto</summary><p>Cada fila acepta una lectura. En un cambio, la vista (−) termina una estación y la nueva vista (+) se registra en otra fila del mismo punto. No escribas ambas en una fila.</p></details>
+<details><summary>El punto conocido no completa sus datos</summary><p>Verifica que se importó al catálogo de ese proyecto y que el identificador coincide, incluidos los ceros iniciales. Confirma el identificador. Si no existe, completa los datos manualmente.</p></details>
+<details><summary>La tabla no cabe en mi celular</summary><p>Desplázala lateralmente. Prueba celdas compactas y un texto cómodo en Opciones; ajusta el separador de tabla y gráfico. Al confirmar una lectura de replanteo se cierra el teclado para recuperar espacio.</p></details>
+<details><summary>El archivo está en blanco o aparecen filas omitidas</summary><p>Selecciona la hoja correcta, revisa las tres columnas, cotas numéricas e identificadores únicos. Convierte fórmulas a valores. Compara con un ejemplo y lee qué filas no se importarán.</p></details>
+<details><summary>¿El gráfico reemplaza la tabla?</summary><p>No. Es un apoyo visual; revisa las cotas y diferencias numéricas. En nivelación general los puntos se muestran en secuencia, no como un plano con distancias levantadas.</p></details>
+<details><summary>¿Restaurar compras recupera mis archivos?</summary><p>No. Recupera el derecho a PRO, no los proyectos. Para recuperar un trabajo necesitas su copia JSON. Consérvala fuera de la app antes de cambiar de dispositivo o desinstalar.</p></details>
+</section><section id="abreviaturas" aria-labelledby="abreviaturas-titulo"><h2 id="abreviaturas-titulo">Qué significa cada columna</h2>
+<dl class="glossary">
+<dt>Punto</dt><dd>Identificador numérico o alfanumérico: 001, P1 o BM1.</dd>
+<dt>Descripción</dt><dd>Texto para reconocer el punto: eje, borde, referencia o cambio.</dd>
+<dt>Cota</dt><dd>Elevación respecto a la referencia de tu trabajo. Puede ser conocida o calculada.</dd>
+<dt>Vista (+)</dt><dd>Lectura sobre una cota conocida que establece la altura instrumental.</dd>
+<dt>Altura instrumental</dt><dd>Cota conocida más vista (+). Es automática.</dd>
+<dt>Vista (I)</dt><dd>Lectura intermedia. En replanteo comprueba el punto contra su objetivo.</dd>
+<dt>Vista (−)</dt><dd>Lectura de cambio o cierre de estación en nivelación general.</dd>
+<dt>Cota objetivo</dt><dd>Nivel que quieres alcanzar. En pendientes se calcula con la rasante.</dd>
+<dt>Lectura ideal</dt><dd>Lectura que daría la cota objetivo desde la altura instrumental actual.</dd>
+<dt>Cota de lectura</dt><dd>Altura instrumental menos la vista (I) observada.</dd>
+<dt>Diferencia</dt><dd>Cota de lectura menos objetivo. Positiva: bajar. Negativa: subir.</dd>
+<dt>Distancia</dt><dd>En pendientes, distancia horizontal acumulada desde el origen.</dd>
+<dt>BM</dt><dd>Referencia con cota conocida para el amarre.</dd></dl>
+</section><section id="referencias" aria-labelledby="referencias-titulo"><h2 id="referencias-titulo">Alcance de esta guía</h2>
+<p>Esta edición describe <strong>Gnomon 1.3.0</strong>, preparada para la próxima actualización. Si tu app todavía no muestra tutoriales, ajustes o los nombres de exportación descritos, puede corresponder a una versión anterior.</p>
+<p>Las capturas se generaron con las pantallas reales y datos ficticios de práctica. Se muestran recortes del gestor, tablas, amarres y diálogos; su distribución varía con el tamaño de pantalla y las opciones de apariencia.</p>
+<p>Los ejemplos explican la aplicación. El método de campo, las verificaciones de cierre y las tolerancias corresponden a tu trabajo; el manual no atribuye a la app una compensación o certificación que no ofrece.</p>
+</section><section id="contacto" aria-labelledby="contacto-titulo"><h2 id="contacto-titulo">¿Necesitas ayuda?</h2>
+<p>Escribe a <a href="mailto:gnomontopografia@gmail.com">gnomontopografia@gmail.com</a> o visita la <a href="contacto.html">página de contacto de GNOMON</a>.</p>
+<p>Indica la herramienta, la versión de la app, el modelo del dispositivo y los pasos para reproducir el problema. Si puedes, adjunta una captura y un archivo de ejemplo sin datos personales.</p>
+<p><a href="privacidad-nivelacion.html">Política de privacidad de Nivelación Topográfica</a> · <a href="index.html">Sitio de GNOMON Topografía</a></p>
+</section><a class="back-top" href="#introduccion">Volver al inicio ↑</a></main></div>
+<footer>GNOMON Topografía · Manual revisado el 27 de septiembre de 2026 · <a href="privacidad-nivelacion.html">Privacidad</a></footer>
+</body></html>
