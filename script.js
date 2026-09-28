@@ -81,8 +81,8 @@ sessionStorage.setItem("gnomon_compra_reference", pago.reference);
         reference: pago.reference,
         redirectUrl: "https://gnomontopografia.com/compra-exitosa.html",
 
-        // Llave pública de Wompi Sandbox
-        publicKey: "pub_test_CbEJO1nfapecGbSr0gwDQz5udor7OsTm",
+        // Llave pública de Wompi Producción
+        publicKey: "pub_prod_DSOIGAWUi6AAWd3K3jR4p0QBa75HMoox",
 
         signature: {
           integrity: pago.signature
