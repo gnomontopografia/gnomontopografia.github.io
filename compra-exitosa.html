@@ -114,6 +114,7 @@
         No cierres esta página.
       </p>
 
+      <button class="btn" id="reintentar" type="button" hidden>Verificar y descargar</button>
       <a href="productos.html" class="btn">
         Volver a productos
       </a>
@@ -143,10 +144,12 @@
   const spinner = document.getElementById("spinner");
   const referencia = sessionStorage.getItem("gnomon_compra_reference");
   const producto = sessionStorage.getItem("gnomon_compra_producto");
+  const reintentar = document.getElementById("reintentar");
   let descargaIniciada = false;
+  let intentos = 0;
   async function iniciarDescarga() {
       if (descargaIniciada) return;
-  descargaIniciada = true;
+  descargaIniciada = true; reintentar.hidden = true; spinner.style.display = "block";
   try {
     if (!referencia) {
       estado.textContent =
@@ -184,7 +187,14 @@
     );
 
     if (!respuesta.ok) {
-      throw new Error(`Estado de descarga: ${respuesta.status}`);
+      const detalle = await respuesta.text();
+      if (respuesta.status === 403 && detalle.includes("Compra no aprobada") && intentos++ < 9) {
+        descargaIniciada = false;
+        estado.textContent = "Esperando la confirmación del pago. Verificaremos de nuevo en unos segundos.";
+        setTimeout(iniciarDescarga, 3000);
+        return;
+      }
+      throw new Error(detalle || `Estado de descarga: ${respuesta.status}`);
     }
 
     const archivo = await respuesta.blob();
@@ -192,17 +202,18 @@
 
     const enlace = document.createElement("a");
     enlace.href = urlArchivo;
-    const nombreArchivo =
-  producto === "lisp_predial"
-    ? "pack_lisp_predial.zip"
-    : "volumen_por_capas.pkt";
+    const nombres = {lisp_predial: "pack_lisp_predial.zip", dynamo_volumen_capas: "volumen_por_capas.pkt", placa_huella_v1: "placa_huella_v1.zip", placa_huella_v2: "placa_huella_v2.zip", adoquines: "adoquines.zip"};
+    const servidor = (respuesta.headers.get("Content-Disposition") || "").match(/filename="([^"/]+)"/);
+    const prefijos = {GNOMON_DYNAMO_: "volumen_por_capas.pkt", GNOMON_LISP_: "pack_lisp_predial.zip", GNOMON_PHV1_: "placa_huella_v1.zip", GNOMON_PHV2_: "placa_huella_v2.zip", GNOMON_ADOQUINES_: "adoquines.zip"};
+    const porReferencia = Object.entries(prefijos).find(([prefijo]) => referencia.startsWith(prefijo));
+    const nombreArchivo = servidor ? servidor[1] : (nombres[producto] || porReferencia?.[1] || "compra_gnomon.zip");
 
 enlace.download = nombreArchivo;
     document.body.appendChild(enlace);
     enlace.click();
     enlace.remove();
 
-    URL.revokeObjectURL(urlArchivo);
+    setTimeout(() => URL.revokeObjectURL(urlArchivo), 30000);
 
     estado.textContent =
       "¡Compra verificada! La descarga de tu archivo ha comenzado.";
@@ -214,9 +225,12 @@ enlace.download = nombreArchivo;
     console.error("Error verificando la compra:", error);
 
     estado.textContent =
-      "Tu pago puede estar procesándose todavía. No cierres esta página y vuelve a intentarlo en unos segundos.";
+      "No pudimos descargar todavía: " + error.message + ". Puedes verificar de nuevo o usar el enlace recibido por correo.";
+    descargaIniciada = false; spinner.style.display = "none"; reintentar.hidden = false;
   }
 }
+
+reintentar.onclick = () => {intentos = 0; iniciarDescarga();};
 
 auth.onAuthStateChanged(() => {
   iniciarDescarga();

@@ -22,177 +22,59 @@ firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 const proveedorGoogle = new firebase.auth.GoogleAuthProvider();
-// =====================================================
-// COMPRA DYNAMO CON WOMPI
-// =====================================================
-
-const btnComprarDynamo = document.getElementById("btn-comprar-dynamo");
-
-if (btnComprarDynamo) {
-  btnComprarDynamo.addEventListener("click", async () => {
-
-    const textoOriginal = btnComprarDynamo.textContent;
-
+// Precios mostrados al comprador; Firebase valida el importe y genera la firma.
+const purchaseProducts = {
+  'btn-comprar-placa_huella_v1': {id:'placa_huella_v1', prefix:'PHV1', amount:5000000},
+  'btn-comprar-placa_huella_v2': {id:'placa_huella_v2', prefix:'PHV2', amount:8000000},
+  'btn-comprar-adoquines': {id:'adoquines', prefix:'ADOQUINES', amount:5000000},
+  'btn-comprar-lisp': {id:'lisp_predial', prefix:'LISP', amount:2000000},
+  'btn-comprar-dynamo': {id:'dynamo_volumen_capas', prefix:'DYNAMO', amount:2000000},
+};
+let preparingPurchase = false;
+for (const [buttonId, product] of Object.entries(purchaseProducts)) {
+  const button = document.getElementById(buttonId);
+  if (!button) continue;
+  button.addEventListener('click', async () => {
+    if (preparingPurchase) return;
+    preparingPurchase = true;
+    const original = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Preparando pago...';
     try {
-// Verifica si el usuario ya inició sesión con Google
-let usuario = auth.currentUser;
-
-if (!usuario) {
-  const resultadoLogin = await auth.signInWithPopup(proveedorGoogle);
-  usuario = resultadoLogin.user;
-}
-
-console.log("Usuario autenticado:", usuario.email);
-      // Obtiene el token seguro del usuario autenticado
-      
-const idToken = await usuario.getIdToken();
-      
-      // Evita que el usuario presione varias veces mientras se prepara el pago
-      btnComprarDynamo.disabled = true;
-      btnComprarDynamo.textContent = "Preparando pago...";
-
-      // Solicita a Firebase una referencia y firma segura para esta compra
-     const respuesta = await fetch(
-  "https://southamerica-east1-gnomon-store.cloudfunctions.net/crearPagoDynamo",
-  {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${idToken}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      productoId: "dynamo_volumen_capas"
-    })
-  }
-);
-
-      if (!respuesta.ok) {
-        throw new Error("Firebase no pudo preparar el pago.");
+      const user = auth.currentUser || (await auth.signInWithPopup(proveedorGoogle)).user;
+      const token = await user.getIdToken();
+      const response = await fetch('https://southamerica-east1-gnomon-store.cloudfunctions.net/crearPagoDynamo', {
+        method:'POST', headers:{Authorization:`Bearer ${token}`, 'Content-Type':'application/json'},
+        body:JSON.stringify({productoId:product.id}),
+      });
+      if (!response.ok) throw Error('No fue posible preparar la compra.');
+      const payment = await response.json();
+      if (payment.currency !== 'COP' || payment.amountInCents !== product.amount ||
+          !payment.reference.startsWith(`GNOMON_${product.prefix}_`) ||
+          !/^[a-f0-9]{64}$/.test(payment.signature)) {
+        throw Error('La información del pago no coincide con el producto.');
       }
-
-      const pago = await respuesta.json();
-      // Guarda la referencia para recuperarla al regresar de Wompi
-sessionStorage.setItem("gnomon_compra_reference", pago.reference);
-
-      // Abre el checkout de Wompi
+      sessionStorage.setItem('gnomon_compra_reference',payment.reference);
+      sessionStorage.setItem('gnomon_compra_producto',product.id);
       const checkout = new WidgetCheckout({
-        currency: pago.currency,
-        amountInCents: pago.amountInCents,
-        reference: pago.reference,
-        redirectUrl: "https://gnomontopografia.com/compra-exitosa.html",
-
-        // Llave pública de Wompi Producción
-        publicKey: "pub_prod_DSOIGAWUi6AAWd3K3jR4p0QBa75HMoox",
-
-        signature: {
-          integrity: pago.signature
+        publicKey:'pub_prod_DSOIGAWUi6AAWd3K3jR4p0QBa75HMoox',
+        currency:payment.currency, amountInCents:payment.amountInCents,
+        reference:payment.reference, signature:{integrity:payment.signature},
+        redirectUrl:'https://gnomontopografia.com/compra-exitosa.html',
+        customerData:{email:user.email},
+      });
+      checkout.open(result => {
+        if (result?.transaction?.status === 'APPROVED') {
+          location.assign('https://gnomontopografia.com/compra-exitosa.html');
         }
       });
-
-     checkout.open(function (resultado) {
-  console.log("Resultado de la transacción:", resultado.transaction);
-}); 
-      
-} catch (error) {
-      console.error("Error preparando el pago:", error);
-
-      alert(
-        "No fue posible iniciar el pago. Por favor intenta nuevamente."
-      );
-
-    } finally {
-
-      btnComprarDynamo.disabled = false;
-      btnComprarDynamo.textContent = textoOriginal;
-
-    }
-
-  });
-}
-// =====================================================
-// COMPRA PACK LISP PREDIAL CON WOMPI
-// =====================================================
-
-const btnComprarLisp = document.getElementById("btn-comprar-lisp");
-
-if (btnComprarLisp) {
-  btnComprarLisp.addEventListener("click", async () => {
-
-    const textoOriginal = btnComprarLisp.textContent;
-
-    try {
-      // Verifica si el usuario ya inició sesión con Google
-      let usuario = auth.currentUser;
-
-      if (!usuario) {
-        const resultadoLogin = await auth.signInWithPopup(proveedorGoogle);
-        usuario = resultadoLogin.user;
-      }
-
-      console.log("Usuario autenticado:", usuario.email);
-
-      // Obtiene el token seguro del usuario autenticado
-      const idToken = await usuario.getIdToken();
-
-      // Evita varios clics mientras se prepara el pago
-      btnComprarLisp.disabled = true;
-      btnComprarLisp.textContent = "Preparando pago...";
-
-      // Solicita a Firebase la referencia y firma segura
-      const respuesta = await fetch(
-        "https://southamerica-east1-gnomon-store.cloudfunctions.net/crearPagoDynamo",
-        {
-          method: "POST",
-          headers: {
-            "Authorization": `Bearer ${idToken}`,
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            productoId: "lisp_predial"
-          })
-        }
-      );
-
-      if (!respuesta.ok) {
-        throw new Error("Firebase no pudo preparar el pago.");
-      }
-
-      const pago = await respuesta.json();
-
-      // Guarda la compra para recuperarla al regresar de Wompi
-      sessionStorage.setItem("gnomon_compra_reference", pago.reference);
-      sessionStorage.setItem("gnomon_compra_producto", "lisp_predial");
-
-      // Abre el checkout de Wompi
-      const checkout = new WidgetCheckout({
-        currency: pago.currency,
-        amountInCents: pago.amountInCents,
-        reference: pago.reference,
-        redirectUrl: "https://gnomontopografia.com/compra-exitosa.html",
-
-        // Llave pública de Wompi Producción
-        publicKey: "pub_prod_DSOIGAWUi6AAWd3K3jR4p0QBa75HMoox",
-
-        signature: {
-          integrity: pago.signature
-        }
-      });
-
-      checkout.open(function (resultado) {
-        console.log("Resultado de la transacción:", resultado.transaction);
-      });
-
     } catch (error) {
-      console.error("Error preparando el pago LISP:", error);
-
-      alert(
-        "No fue posible iniciar el pago. Por favor intenta nuevamente."
-      );
-
+      console.error('No fue posible iniciar la compra:',error);
+      alert('No fue posible iniciar el pago. Intenta nuevamente o contacta a GNOMON.');
     } finally {
-      btnComprarLisp.disabled = false;
-      btnComprarLisp.textContent = textoOriginal;
+      preparingPurchase = false;
+      button.disabled = false;
+      button.textContent = original;
     }
-
   });
 }
