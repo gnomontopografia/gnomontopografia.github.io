@@ -142,6 +142,7 @@
   const estado = document.getElementById("estado");
   const spinner = document.getElementById("spinner");
   const referencia = sessionStorage.getItem("gnomon_compra_reference");
+  const producto = sessionStorage.getItem("gnomon_compra_producto");
   let descargaIniciada = false;
   async function iniciarDescarga() {
       if (descargaIniciada) return;
@@ -191,7 +192,12 @@
 
     const enlace = document.createElement("a");
     enlace.href = urlArchivo;
-    enlace.download = "volumen_por_capas.pkt";
+    const nombreArchivo =
+  producto === "lisp_predial"
+    ? "pack_lisp_predial.zip"
+    : "volumen_por_capas.pkt";
+
+enlace.download = nombreArchivo;
     document.body.appendChild(enlace);
     enlace.click();
     enlace.remove();
@@ -203,7 +209,7 @@
     spinner.style.display = "none";
 
     sessionStorage.removeItem("gnomon_compra_reference");
-
+    sessionStorage.removeItem("gnomon_compra_producto");
   } catch (error) {
     console.error("Error verificando la compra:", error);
 
