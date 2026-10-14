@@ -39,3 +39,47 @@ let preparingPurchase = false;
 for (const [buttonId, product] of Object.entries(purchaseProducts)) {
   const button = document.getElementById(buttonId);
   if (!button) continue;
+  button.addEventListener('click', async () => {
+    if (preparingPurchase) return;
+    preparingPurchase = true;
+    const original = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Preparando pago...';
+    try {
+      const user = auth.currentUser || (await auth.signInWithPopup(proveedorGoogle)).user;
+      const token = await user.getIdToken();
+      const response = await fetch('https://southamerica-east1-gnomon-store.cloudfunctions.net/crearPagoDynamo', {
+        method:'POST', headers:{Authorization:'Bearer ' + token, 'Content-Type':'application/json'},
+        body:JSON.stringify({productoId:product.id}),
+      });
+      if (!response.ok) throw Error('No fue posible preparar la compra.');
+      const payment = await response.json();
+      if (payment.currency !== 'COP' || payment.amountInCents !== product.amount ||
+          !payment.reference.startsWith('GNOMON_' + product.prefix + '_') ||
+          !/^[a-f0-9]{64}$/.test(payment.signature)) {
+        throw Error('La información del pago no coincide con el producto.');
+      }
+      sessionStorage.setItem('gnomon_compra_reference',payment.reference);
+      sessionStorage.setItem('gnomon_compra_producto',product.id);
+      const checkout = new WidgetCheckout({
+        publicKey:'pub_prod_DSOIGAWUi6AAWd3K3jR4p0QBa75HMoox',
+        currency:payment.currency, amountInCents:payment.amountInCents,
+        reference:payment.reference, signature:{integrity:payment.signature},
+        redirectUrl:'https://gnomontopografia.com/compra-exitosa.html',
+        customerData:{email:user.email},
+      });
+      checkout.open(result => {
+        if (result?.transaction?.status === 'APPROVED') {
+          location.assign('https://gnomontopografia.com/compra-exitosa.html');
+        }
+      });
+    } catch (error) {
+      console.error('No fue posible iniciar la compra:',error);
+      alert('No fue posible iniciar el pago. Intenta nuevamente o contacta a GNOMON.');
+    } finally {
+      preparingPurchase = false;
+      button.disabled = false;
+      button.textContent = original;
+    }
+  });
+}
