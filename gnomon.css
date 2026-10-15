@@ -16,3 +16,40 @@
 @media(max-width:650px){.tech-site .container{padding-inline:20px}.tech-site .brand-text strong{font-size:16px}.tech-site .brand-text small{font-size:10px}.tech-site .logo-gnomon{width:36px;height:36px}.tech-site .header-inner{gap:8px}.tech-site .main-nav a[href="contacto.html"]{margin-left:0}.tech-hero{padding:40px 0}.home-hero{grid-template-columns:1fr;gap:32px}.hero-copy h1{font-size:41px;letter-spacing:-1.5px}.hero-meta{margin-top:26px;font-size:9px;gap:10px}.tech-actions{gap:10px;margin-top:22px}.tech-btn{padding:12px 16px;gap:12px}.plan-figure{max-width:100%}.tech-section{padding:40px 0}.section-heading{flex-direction:column;align-items:start;gap:18px;margin-bottom:24px}.three-grid,.four-grid,.news-grid,.split-content,.service-layout,.contact-grid,.footer-grid{grid-template-columns:1fr;gap:20px}.three-grid>.tech-card:last-child{grid-column:auto}.tech-card{padding:24px}.card-number{margin-bottom:22px}.project-cta{padding:36px 0}.project-cta>.container{flex-direction:column;align-items:start;gap:24px}.page-intro{padding:40px 0}.page-intro .lead{font-size:16px}.service-index{padding:22px 0}.four-grid{gap:16px}.four-grid>a{border:0}.service-block{scroll-margin-top:80px}.status-panel,.contact-card,.brief-panel{padding:24px}.footer-grid{gap:30px}.footer-bottom{flex-direction:column;gap:12px}.tech-footer{padding-top:36px}.news-art{height:165px}.tech-site.store-page .store-body{padding:22px}.tech-site.store-page .store-hero h1{font-size:36px}.tech-site.store-page .store-description{min-height:0}.tech-site.store-page .store-section-head h3{font-size:27px}.tech-site.store-page .store-purchase{gap:10px}.tech-site.store-page .store-buy{font-size:12px;padding:12px 14px}.tech-site.store-page .store-price{font-size:23px}}
 @media(prefers-reduced-motion:reduce){.tech-site *{scroll-behavior:auto!important;transition:none!important}}
 
+
+/* Paleta cálida de GNOMON. Conserva estructura y componentes funcionales. */
+:root{--ink:#49372b;--green:#825c3b;--text:#382f29;--muted:#706457;--paper:#f5f2e8;--line:#ddd3c0;--gold:#b5895a;--bg:#f5f2e8;--fg:#382f29}
+.tech-site .site-header{background:rgba(245,242,232,.97)}
+.tech-site h1,.tech-site h2,.tech-site h3{letter-spacing:-.3px}
+.tech-site .main-nav a{color:#5e5043;border-radius:999px}
+.tech-site .main-nav a:hover,.tech-site .main-nav a[aria-current]{background:#e8d8c2;color:#49372b}
+.tech-site .main-nav a[href="contacto.html"]{border-color:#d2bda3}
+.tech-hero,.page-intro,.tech-site.store-page .store-hero{background:#efe8da}
+.hero-copy h1 span,.tech-site.store-page .store-hero h1 em{color:#89613b}
+.eyebrow,.micro,.card-number,.hero-meta,.plan-figure figcaption{font-family:inherit;letter-spacing:.6px}
+.eyebrow{color:#805b36}.hero-meta{color:#776650}.plan-figure,.text-link{border-color:#c9b79f}.plan-figure figcaption{color:#706457}
+.tech-btn,.tech-site.store-page .store-buy{background:#89613b;border-color:#89613b;border-radius:999px;box-shadow:0 3px 9px #49372b12}
+.tech-btn:hover,.tech-site.store-page .store-buy:hover{background:#704c2c;border-color:#704c2c}
+.tech-btn.outline{background:transparent;color:#49372b!important;border-color:#baa488}
+.tech-btn.outline:hover{background:#e8dcc9}
+.tinted,.service-block:nth-child(even),.brief-panel,.tech-site.store-page .store-how{background:#ebe5d4}
+.tech-card,.news-card,.status-panel,.contact-card,.brief-panel,.tech-site.store-page .store-card,.tech-site.store-page .store-note{border-radius:14px;border-color:#ddd3c0;box-shadow:0 4px 14px #49372b08}
+.news-art,.news-art.app,.news-art.civil,.news-art.lab,.news-art.cad{background-image:none;background-color:#e9decb;color:#614a36;font-family:inherit}
+.news-art.app,.news-art.cad{background-color:#eee5d8}
+.project-cta{background:#574333}.project-cta .eyebrow,.project-cta p{color:#e8ddce}.tech-btn.light{background:#f5f2e8;color:#49372b!important;border-color:#f5f2e8}
+.tech-footer{background:#ebe5d4}.footer-bottom{border-color:#d7cbb6;color:#706457}.tech-footer .micro{color:#706457}
+.tech-site.store-page{--store-green:#825c3b;--store-ink:#49372b;--store-muted:#706457}
+.store-note,.store-note li,.store-filter{border-color:#d5c6ae}.store-note li{color:#706457}
+.store-filter[aria-pressed="true"]{background:#89613b;border-color:#89613b}
+.mobile-shortcuts{display:none}
+@media(max-width:900px){
+ .tech-site .header-inner{display:grid;grid-template-columns:1fr auto;gap:12px}
+ .tech-site .brand{grid-column:1/-1}
+ .mobile-shortcuts{display:flex;gap:8px;align-items:center}
+ .mobile-shortcuts a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 14px;border:1px solid #c7b193;border-radius:999px;text-decoration:none;font-size:13px;font-weight:650;color:#49372b}
+ .mobile-shortcuts a:first-child{background:#89613b;color:white;border-color:#89613b}
+ .nav-js .nav-toggle{margin:0;min-height:44px;border-color:#c7b193;border-radius:999px;padding:9px 12px;gap:6px}
+ .tech-site .main-nav{grid-column:1/-1}
+ .nav-js .main-nav a[href="productos.html"],.nav-js .main-nav a[href="contacto.html"]{display:none}
+}
+@media(max-width:360px){.mobile-shortcuts a{padding-inline:10px;font-size:12px}.nav-js .nav-toggle{font-size:11px;padding-inline:8px}.tech-site .header-inner{column-gap:6px}}
