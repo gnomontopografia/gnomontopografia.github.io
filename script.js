@@ -33,6 +33,7 @@ const purchaseProducts = {
   'btn-comprar-adoquines': {id:'adoquines', prefix:'ADOQUINES', amount:5000000},
   'btn-comprar-lisp': {id:'lisp_predial', prefix:'LISP', amount:2000000},
   'btn-comprar-dynamo': {id:'dynamo_volumen_capas', prefix:'DYNAMO', amount:2000000},
+  'btn-comprar-dotnet-rasante': {id:'dotnet_rasante_2026', prefix:'RASANTE', amount:1000000},
   'btn-comprar-dotnet-alineamiento': {id:'dotnet_alineamiento_2026', prefix:'ALINEAMIENTO', amount:1000000},
 };
 let preparingPurchase = false;
