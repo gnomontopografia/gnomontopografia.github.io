@@ -105,7 +105,7 @@
         class="logo"
       />
 
-      <h1>Estamos verificando tu compra</h1>
+      <h1>Estado de tu compra</h1>
 
       <div class="spinner" id="spinner"></div>
 
@@ -154,6 +154,7 @@
     if (!referencia) {
       estado.textContent =
         "No encontramos la referencia de esta compra. Vuelve a productos e inténtalo nuevamente.";
+      spinner.style.display = "none";
       return;
     }
 
@@ -168,7 +169,7 @@
     }
 
     estado.textContent =
-      "Pago recibido. Estamos verificando tu compra antes de iniciar la descarga...";
+      "Estamos verificando el estado del pago. La descarga solo se habilita cuando la compra está aprobada.";
 
     const token = await usuario.getIdToken(true);
 
@@ -188,6 +189,11 @@
 
     if (!respuesta.ok) {
       const detalle = await respuesta.text();
+      if (respuesta.status === 403 && /Pago rechazado|pago no se completo|Pago anulado/i.test(detalle)) {
+        estado.textContent = detalle + " Si necesitas ayuda, contacta a GNOMON e indica la referencia: " + referencia;
+        spinner.style.display = "none";
+        return;
+      }
       if (respuesta.status === 403 && detalle.includes("Compra no aprobada") && intentos++ < 9) {
         descargaIniciada = false;
         estado.textContent = "Esperando la confirmación del pago. Verificaremos de nuevo en unos segundos.";
@@ -225,7 +231,7 @@ enlace.download = nombreArchivo;
     console.error("Error verificando la compra:", error);
 
     estado.textContent =
-      "No pudimos descargar todavía: " + error.message + ". Puedes verificar de nuevo o usar el enlace recibido por correo.";
+      "No se pudo habilitar la descarga: " + error.message + ". Puedes verificar de nuevo. El correo de entrega solo se envía después de aprobarse el pago.";
     descargaIniciada = false; spinner.style.display = "none"; reintentar.hidden = false;
   }
 }
