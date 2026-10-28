@@ -210,9 +210,9 @@
 
     const enlace = document.createElement("a");
     enlace.href = urlArchivo;
-    const nombres = {paquete_invias_2008: "Paquete Invias 2008.zip", dotnet_alineamiento_2026: "GNO_ALINEAMIENTO_NET2026.dll", dotnet_rasante_2026: "GNO_RASANTE_NET2026.dll", lisp_predial: "pack_lisp_predial.zip", dynamo_volumen_capas: "GNO_Volumenes_Capas.dyn", placa_huella_v1: "placa_huella_v1.zip", placa_huella_v2: "placa_huella_v2.zip", adoquines: "adoquines.zip"};
+    const nombres = {dotnet_rasante_pro_2026: "GNO_RASANTE_NET2026_PRO.dll", paquete_invias_2008: "Paquete Invias 2008.zip", dotnet_alineamiento_2026: "GNO_ALINEAMIENTO_NET2026.dll", dotnet_rasante_2026: "GNO_RASANTE_NET2026.dll", lisp_predial: "pack_lisp_predial.zip", dynamo_volumen_capas: "GNO_Volumenes_Capas.dyn", placa_huella_v1: "placa_huella_v1.zip", placa_huella_v2: "placa_huella_v2.zip", adoquines: "adoquines.zip"};
     const servidor = (respuesta.headers.get("Content-Disposition") || "").match(/filename="([^"/]+)"/);
-    const prefijos = {GNOMON_INVIAS2008_: "Paquete Invias 2008.zip", GNOMON_ALINEAMIENTO_: "GNO_ALINEAMIENTO_NET2026.dll", GNOMON_RASANTE_: "GNO_RASANTE_NET2026.dll", GNOMON_DYNAMO_: "GNO_Volumenes_Capas.dyn", GNOMON_LISP_: "pack_lisp_predial.zip", GNOMON_PHV1_: "placa_huella_v1.zip", GNOMON_PHV2_: "placa_huella_v2.zip", GNOMON_ADOQUINES_: "adoquines.zip"};
+    const prefijos = {GNOMON_RASANTEPRO_: "GNO_RASANTE_NET2026_PRO.dll", GNOMON_INVIAS2008_: "Paquete Invias 2008.zip", GNOMON_ALINEAMIENTO_: "GNO_ALINEAMIENTO_NET2026.dll", GNOMON_RASANTE_: "GNO_RASANTE_NET2026.dll", GNOMON_DYNAMO_: "GNO_Volumenes_Capas.dyn", GNOMON_LISP_: "pack_lisp_predial.zip", GNOMON_PHV1_: "placa_huella_v1.zip", GNOMON_PHV2_: "placa_huella_v2.zip", GNOMON_ADOQUINES_: "adoquines.zip"};
     const porReferencia = Object.entries(prefijos).find(([prefijo]) => referencia.startsWith(prefijo));
     const nombreArchivo = servidor ? servidor[1] : (nombres[producto] || porReferencia?.[1] || "compra_gnomon.zip");
 
