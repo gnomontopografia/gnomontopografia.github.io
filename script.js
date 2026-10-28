@@ -28,6 +28,7 @@ const auth = firebase.auth();
 const proveedorGoogle = new firebase.auth.GoogleAuthProvider();
 // Precios mostrados al comprador; Firebase valida el importe y genera la firma.
 const purchaseProducts = {
+  'btn-comprar-dotnet-rasante-pro': {id:'dotnet_rasante_pro_2026', prefix:'RASANTEPRO', amount:1500000},
   'btn-comprar-invias-2008': {id:'paquete_invias_2008', prefix:'INVIAS2008', amount:4000000},
   'btn-comprar-placa_huella_v1': {id:'placa_huella_v1', prefix:'PHV1', amount:5000000},
   'btn-comprar-placa_huella_v2': {id:'placa_huella_v2', prefix:'PHV2', amount:8000000},
