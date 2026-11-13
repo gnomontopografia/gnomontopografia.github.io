@@ -53,3 +53,54 @@
  .nav-js .main-nav a[href="productos.html"],.nav-js .main-nav a[href="contacto.html"]{display:none}
 }
 @media(max-width:360px){.mobile-shortcuts a{padding-inline:10px;font-size:12px}.nav-js .nav-toggle{font-size:11px;padding-inline:8px}.tech-site .header-inner{column-gap:6px}}
+
+
+/* GNOMON 2026 — refinamiento visual progresivo, accesible y responsive */
+.tech-site{--paper:#fafbf8;--line:#dfe7dd;--muted:#52665b;background:var(--paper);font-size:16px}
+.tech-site .site-header{background:rgba(250,251,248,.96);box-shadow:0 3px 18px rgba(22,61,52,.045)}
+.tech-site .main-nav a{font-size:13px;border-radius:9px;transition:background .2s ease,color .2s ease}
+.tech-site .tech-hero{background:radial-gradient(ellipse at 10% 5%,#e4eee3 0,transparent 57%),linear-gradient(125deg,#fafbf8,#f1f5ed)}
+.tech-site .tech-card,.tech-site .news-card,.tech-site .plan-figure,.tech-site .status-panel{border-radius:16px;box-shadow:0 8px 28px rgba(22,61,52,.045)}
+.tech-site .tech-card,.tech-site .news-card{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+@media(hover:hover){.tech-site .tech-card:hover,.tech-site .news-card:hover{transform:translateY(-3px);border-color:#bed1bf;box-shadow:0 14px 34px rgba(22,61,52,.10)}}
+.tech-site .tech-btn{border-radius:11px;min-height:48px;transition:background .2s ease,transform .2s ease}
+.tech-site .tech-btn:active{transform:translateY(1px)}
+.tech-site .page-intro{background:linear-gradient(115deg,#eaf2e8,#fafbf8)}
+.tech-site .lead{color:#4f6257}
+.tech-site img{height:auto}
+.tech-site :where(a,button,input,textarea,select){-webkit-tap-highlight-color:transparent}
+.tech-site :where(a,button){touch-action:manipulation}
+@media(max-width:900px){
+ .tech-site .container{padding-inline:clamp(18px,4vw,32px)}
+ .tech-site .home-hero{gap:28px}
+ .tech-site .three-grid,.tech-site .news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tech-site .four-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tech-site .split-content{gap:32px}
+ .tech-site .tech-section{padding-block:52px}
+}
+@media(max-width:640px){
+ .tech-site{font-size:15px;line-height:1.6}
+ .tech-site .container{padding-inline:18px}
+ .tech-site h1{font-size:clamp(32px,9vw,43px);letter-spacing:-1.1px}
+ .tech-site h2{font-size:clamp(25px,7vw,32px);letter-spacing:-.7px}
+ .tech-site h3{font-size:21px}
+ .tech-site .tech-hero,.tech-site .page-intro{padding-block:42px}
+ .tech-site .tech-section{padding-block:42px}
+ .tech-site .home-hero,.tech-site .split-content,.tech-site .three-grid,.tech-site .news-grid,.tech-site .four-grid{grid-template-columns:minmax(0,1fr)}
+ .tech-site .section-heading{display:block;margin-bottom:24px}
+ .tech-site .section-heading>p{margin-top:12px}
+ .tech-site .tech-card{padding:23px}
+ .tech-site .tech-actions{gap:10px}
+ .tech-site .tech-btn{max-width:100%;text-align:center}
+ .tech-site .project-cta>.container{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+ .tech-site .hero-meta{flex-wrap:wrap;gap:9px}
+ .tech-site .news-art{height:160px}
+ .tech-site .four-grid>a{border-right:0;border-bottom:1px solid var(--line);padding:12px 0}
+ .tech-site .status-panel{padding:24px}
+ .tech-site .header-inner{gap:8px}
+ .tech-site .brand-text strong{font-size:15px}
+ .tech-site .brand-text small{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ .tech-site *, .tech-site *::before,.tech-site *::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
