@@ -75,3 +75,12 @@ a{color:inherit;text-decoration:none}img,svg{max-width:100%}button,input{font:in
 .store-card .catalog-card-body{padding:21px}
 .direct-payment-note{align-items:start}
 }
+
+/* GNOMON Map: presentación Android paralela a Nivelación Topográfica */
+.product-media.gnomon-map-media{display:block;background:#103c36;position:relative}
+.product-media.gnomon-map-media:after{display:none}
+.gnomon-map-art{display:block;width:100%;height:100%;object-fit:cover}
+.gnomon-map-media-label{position:absolute;right:12px;bottom:12px;background:#f4fff0;color:#175842;border-radius:8px;padding:5px 9px;font-size:9px;font-weight:850;letter-spacing:.065em;line-height:1.4}
+.sig-placeholder{padding:38px;border:1px dashed #b6d4c1;border-radius:19px;background:#fff;min-height:155px}
+.sig-placeholder p{max-width:620px;margin:16px 0 0;color:#62796c;font-size:14px}
+@media(max-width:590px){.gnomon-map-media-label{font-size:8px;right:9px;bottom:9px}.sig-placeholder{padding:24px;min-height:140px}}
