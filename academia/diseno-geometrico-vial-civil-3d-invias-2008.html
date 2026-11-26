@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aprende a diseñar un eje vial, una rasante, peraltes y un corredor en Civil 3D con criterios INVIAS 2008, una demostración de GNOMON y un ejemplo de revisión.">
+  <title>Diseño geométrico vial en Civil 3D | INVIAS 2008</title>
+  <link rel="canonical" href="https://gnomontopografia.com/academia/diseno-geometrico-vial-civil-3d-invias-2008.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="../ecosistema.css?v=20261118-sig1">
+  <link rel="stylesheet" href="tutoriales.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Ir al contenido</a>
+  <header class="site-header"><div class="container head-inner"><a class="brand" href="../index.html" aria-label="GNOMON - Inicio"><img src="../assets/img/logo_gnomon.png" width="46" height="46" alt=""><span><strong>GNOMON</strong><small>Ingeniería · Tecnología geoespacial</small></span></a><nav class="nav" id="navegacion" aria-label="Navegación principal"><a href="../index.html">Inicio</a><a href="../productos.html" >Tienda digital</a><a href="../servicios.html" >Soluciones</a><a href="../academia.html">Aprende</a><a href="../laboratorio.html" class="nav-lab" >Laboratorio <small>2027</small></a></nav><div class="head-cta"><a class="btn btn-primary btn-small" href="https://wa.me/573152999158?text=Hola%20GNOMON%2C%20quiero%20consultar%20una%20soluci%C3%B3n%20para%20mi%20proyecto." target="_blank" rel="noopener">Hablar con GNOMON ↗</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navegacion" aria-label="Abrir o cerrar menú">☰</button></div></div></header>
+  <main id="contenido">
+<section class="guide-hero">
+  <div class="container">
+    <a class="guide-back" href="../academia.html">← Volver a Academia</a>
+    <p class="eyebrow">Academia GNOMON · Civil 3D</p>
+    <h1>Diseño geométrico de vías en Civil 3D con criterios INVIAS 2008</h1>
+    <p>Aprende a pasar de una superficie topográfica a un corredor vial, con un ejemplo para revisar el radio, la rasante y el peralte antes de presentar el diseño.</p>
+    <p class="guide-byline">Por GNOMON Topografía</p>
+  </div>
+</section>
+
+<article class="container guide">
+  <nav class="guide-index" aria-label="Contenido del tutorial">
+    <h2>En esta guía</h2>
+    <ol>
+      <li><a href="#preparacion">Preparar el proyecto y los criterios</a></li>
+      <li><a href="#trazado">Diseñar el eje y la rasante</a></li>
+      <li><a href="#corredor">Aplicar el peralte y modelar el corredor</a></li>
+      <li><a href="#ejemplo">Comprobar un tramo de ejemplo</a></li>
+      <li><a href="#video">Ver la demostración de GNOMON</a></li>
+    </ol>
+  </nav>
+  <section id="preparacion">
+    <h2>1. Prepara el proyecto y define los criterios</h2>
+    <p>Para diseñar una vía con criterios INVIAS 2008 en Civil 3D, prepara primero la superficie del terreno. Define la categoría de la carretera, el tipo de terreno y la velocidad de diseño del tramo homogéneo. Luego establece las velocidades específicas de los elementos geométricos según corresponda. Esa información orienta las comprobaciones en planta, perfil y sección transversal.</p>
+    <ol>
+      <li><strong>Verifica la base topográfica.</strong> Comprueba las unidades, el sistema de coordenadas y que la superficie TIN cubra el trazado y la zona prevista para los taludes. Inspecciona los triángulos en los bordes y en los cambios bruscos de pendiente.</li>
+      <li><strong>Abre un dibujo en metros.</strong> Si usas una plantilla DWT, aprovecha sus capas, estilos y etiquetas. Si ya tienes un DWG con el terreno, puedes trabajar sobre una copia y aplicar la configuración que necesites.</li>
+      <li><strong>Confirma el alcance del XML.</strong> Identifica qué tablas incorpora el archivo de criterios y compáralas con el manual y los requisitos del proyecto. Documenta qué comprobaciones quedan a cargo del diseñador.</li>
+    </ol>
+    <p class="guide-source">Fuente: <a href="https://www.planospara.com/bbonos/Manual%20de%20Diseno%20Geometrico%20de%20Carreteras%20%5BColombia%5D.pdf">Manual de Diseño Geométrico de Carreteras 2008 — INVÍAS (PDF)</a>. Consulta los capítulos 2 a 5 para velocidad, planta, perfil y sección transversal.</p>
+  </section>
+  <section id="trazado">
+    <h2>2. Traza el eje en planta y dibuja la rasante</h2>
+    <h3>Alineamiento horizontal</h3>
+    <p>Crea un alineamiento de eje en <strong>Inicio → Crear diseño → Alineación</strong>. Si partes de una polilínea, comprueba el sentido del abscisado antes de definir las curvas. Usa tangentes, curvas circulares y espirales donde el trazado lo requiera.</p>
+    <p>En la pestaña <strong>Criterios de diseño</strong>, especifica la velocidad inicial y activa el diseño según criterios si vas a asociar un XML. Configura los cambios de velocidad por estación donde procedan y revisa las advertencias por entidad. Contrasta la velocidad específica, el radio, las transiciones y la visibilidad con el manual. El reporte de Civil 3D evalúa las reglas que tengas configuradas.</p>
+    <h3>Perfil del terreno y rasante</h3>
+    <p>Crea un perfil de superficie a partir del eje y del terreno natural, y muéstralo en una visualización de perfil. Dibuja la rasante como un perfil de diseño independiente. Define los puntos de intersección vertical, introduce las pendientes y resuelve los cambios con curvas verticales. Comprueba las cotas en los empalmes y revisa pendientes, longitudes y valores K según el tipo de curva y la condición de visibilidad.</p>
+    <p class="guide-source">Documentación de Autodesk: <a href="https://help.autodesk.com/cloudhelp/2026/ENG/Civil3D-UserGuide/files/GUID-888F1041-0B17-464B-BBAC-4472FAB8F8D1.htm">criterios de alineamiento</a> y <a href="https://help.autodesk.com/cloudhelp/2026/ENG/Civil3D-UserGuide/files/GUID-E08E8F60-5BF1-4188-8A15-901646DF8F62.htm">criterios de perfil</a>.</p>
+  </section>
+  <section id="corredor">
+    <h2>3. Calcula el peralte y modela el corredor</h2>
+    <ol>
+      <li><strong>Calcula el peralte del alineamiento.</strong> En el asistente, revisa el tipo de calzada, el punto de giro, el bombeo normal, las tablas y el método de transición. Usa el editor tabular para revisar estaciones críticas, signos de las pendientes transversales y posibles solapes entre curvas.</li>
+      <li><strong>Arma la sección típica.</strong> Configura carriles, bermas y taludes según el proyecto. Si vas a modelar las capas, usa la sección correspondiente a pavimento flexible (asfalto) o rígido (concreto), con espesores definidos por el diseño de pavimentos.</li>
+      <li><strong>Crea el corredor.</strong> Usa el eje y la rasante como línea base y asigna el ensamblaje por región. Comprueba que los subensamblajes de carril usan los datos de peralte y asigna el terreno como objetivo a los elementos que deban empatar con él. Reconstruye el corredor cuando actualices el peralte.</li>
+      <li><strong>Inspecciona las secciones.</strong> Revisa una tangente, las transiciones, el interior de la curva y los empalmes. Comprueba ancho, giro de la calzada y encuentro con el terreno antes de preparar las vistas de planta y perfil y los planos de secciones.</li>
+    </ol>
+    <p class="guide-source">Documentación de Autodesk: <a href="https://help.autodesk.com/cloudhelp/2026/ENG/Civil3D-UserGuide/files/GUID-D33F89CC-3F25-4ABC-8B14-1AB624C31DDE.htm">cálculo y revisión del peralte en Civil 3D</a>.</p>
+  </section>
+  <section id="ejemplo">
+    <h2>4. Comprueba un tramo de ejemplo</h2>
+    <p>Imagina una curva horizontal con radio de <strong>150 m</strong> y una curva vertical convexa de <strong>120 m</strong> que conecta una pendiente de entrada de <strong>+2 %</strong> con una de salida de <strong>−1 %</strong>. Son datos ilustrativos para practicar la revisión.</p>
+    <dl class="guide-checks">
+      <div><dt>En planta</dt><dd>Lee el radio en las propiedades de la curva. Si la velocidad específica de la curva es de 60 km/h y al proyecto le corresponde un peralte máximo del 8 %, la tabla 3.2 del manual indica un radio mínimo redondeado de 113 m. Los 150 m superan ese mínimo. Con 70 km/h y el mismo peralte máximo, el mínimo sube a 168 m y esta curva queda por debajo. El 8 % es el máximo del supuesto. El peralte de la curva se determina por separado.</dd></div>
+      <div><dt>En perfil</dt><dd>La diferencia algebraica absoluta de pendientes es de 3 puntos porcentuales. El valor <strong>K = 120 ÷ 3 = 40 m/%</strong> debe coincidir con el perfil. Contrástalo con el criterio aplicable a esa curva convexa y comprueba la visibilidad.</dd></div>
+      <div><dt>En sección</dt><dd>Elige tres abscisas del modelo: una antes de la transición, una en la transición y otra en el tramo de peralte total. Compara las pendientes transversales de las secciones con las del editor tabular.</dd></div>
+    </dl>
+    <p class="guide-note"><strong>Antes de entregar:</strong> registra los criterios aplicados y las verificaciones de planta, perfil y sección. Para un proyecto real, confirma con la entidad contratante la normativa aplicable y sus modificaciones.</p>
+  </section>
+  <aside class="guide-promo" aria-labelledby="guia-producto">
+    <p class="eyebrow">Herramienta GNOMON</p>
+    <h2 id="guia-producto">Paquete INVIAS 2008</h2>
+    <p>Plantilla DWT, archivos XML de criterios, complementos de alineamiento y rasante, rótulos y un dibujo de ejemplo para practicar.</p>
+    <a class="btn btn-primary btn-small" href="../productos.html#cat-invias">Ver paquete y compatibilidad →</a>
+  </aside>
+  <section id="video">
+    <h2>5. Mira el flujo de trabajo en Civil 3D</h2>
+    <p>La demostración de GNOMON Topografía recorre el alineamiento, la rasante, los peraltes y el corredor, con secciones típicas para pavimento flexible y rígido.</p>
+    <div class="guide-video">
+      <iframe src="https://www.youtube-nocookie.com/embed/-IN-ZxAnR6Y" title="Diseño Geométrico de Vías en Civil 3D | Plantillas BIM y Criterios INVÍAS" width="720" height="405" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <p><a href="https://www.youtube.com/watch?v=-IN-ZxAnR6Y">Ver la demostración en YouTube ↗</a> · <a href="https://www.youtube.com/watch?v=-IN-ZxAnR6Y&amp;t=250s">Ver el terreno en Civil 3D (4:10)</a></p>
+  </section>
+</article>
+  </main>
+  <footer class="site-footer"><div class="container"><div class="footer-grid"><div><a class="brand" href="../index.html"><img src="../assets/img/logo_gnomon.png" alt="" width="46" height="46"><span><strong>GNOMON</strong><small>Ingeniería · Tecnología geoespacial</small></span></a><p style="margin-top:22px;max-width:350px">Herramientas, conocimiento y servicios para optimizar el trabajo técnico, desde los datos de campo hasta los entregables.</p></div><div><h3>Explorar</h3><a href="../productos.html">Tienda digital</a><a href="../servicios.html">Servicios y soluciones</a><a href="../academia.html">Aprende con GNOMON</a><a href="../laboratorio.html">Laboratorio 2027</a><a href="../empresa.html">Sobre GNOMON</a><a href="../noticias.html">Novedades</a></div><div><h3>Contacto y soporte</h3><a href="https://wa.me/573152999158" target="_blank" rel="noopener">WhatsApp · +57 315 299 9158</a><a href="mailto:gnomontopografia@gmail.com">gnomontopografia@gmail.com</a><a href="../contacto.html">Ayuda con compras y compatibilidad</a><a href="../politica-privacidad.html">Política de privacidad</a></div></div><div class="footnote"><span>GNOMON · Ingeniería geoespacial y automatización · Colombia</span><span>Compra digital segura · Pago con Wompi</span></div></div></footer>
+  <script src="../ecosistema.js?v=20261118" defer></script>
+</body>
+</html>
