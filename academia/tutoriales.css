@@ -166,3 +166,7 @@
     flex-shrink: 0;
   }
 }
+
+/* Reproductores verticales de Academia */
+.guide-video-vertical { max-width: 360px; margin-inline: auto; }
+.guide-video-vertical iframe { aspect-ratio: 9 / 16; }
